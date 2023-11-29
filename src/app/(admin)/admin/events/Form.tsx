@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import {
   Box,
   Button,
@@ -8,15 +8,16 @@ import {
   Skeleton,
   Stack,
   TextInput,
+  Textarea,
   Title,
-} from '@mantine/core';
-import '@mantine/tiptap/styles.css';
-import { FormEvent, use, useEffect, useState } from 'react';
-import RichText from '../../core/RichText';
-import { doc, serverTimestamp, setDoc } from 'firebase/firestore';
-import { db } from '@/lib/firebase';
-import { Event } from '@/lib/modals';
-import { DateTimePicker } from '@mantine/dates';
+} from "@mantine/core";
+import "@mantine/tiptap/styles.css";
+import { FormEvent, use, useEffect, useState } from "react";
+import RichText from "../../core/RichText";
+import { doc, serverTimestamp, setDoc } from "firebase/firestore";
+import { db } from "@/lib/firebase";
+import { Event } from "@/lib/modals";
+import { DateTimePicker } from "@mantine/dates";
 
 type Props = {
   item: Event;
@@ -24,8 +25,8 @@ type Props = {
 };
 export default function Form({ item, isLoading }: Props) {
   const [saving, setSaving] = useState(false);
-  const [title, setTitle] = useState<string>('');
-  const [description, setDescription] = useState<string>('');
+  const [title, setTitle] = useState<string>("");
+  const [description, setDescription] = useState<string>("");
   const [date, setDate] = useState<Date>(new Date());
   const [id, setId] = useState<string | null>(null);
 
@@ -39,9 +40,9 @@ export default function Form({ item, isLoading }: Props) {
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    console.log('submitting', { id }, { title }, { description });
+    console.log("submitting", { id }, { title }, { description });
     if (!id) return;
-    await setDoc(doc(db, 'events', id), {
+    await setDoc(doc(db, "events", id), {
       title,
       description,
       date,
@@ -50,8 +51,8 @@ export default function Form({ item, isLoading }: Props) {
   }
 
   return (
-    <Box component='form' onSubmit={handleSubmit}>
-      <Flex justify='space-between' align={'center'} h={60} p='md'>
+    <Box component="form" onSubmit={handleSubmit}>
+      <Flex justify="space-between" align={"center"} h={60} p="md">
         {isLoading ? (
           <Skeleton width={200} h={35} />
         ) : (
@@ -60,9 +61,9 @@ export default function Form({ item, isLoading }: Props) {
           </Title>
         )}
         <Button
-          type='submit'
+          type="submit"
           loading={saving}
-          color='dark'
+          color="dark"
           disabled={isLoading}
         >
           Save
@@ -70,28 +71,28 @@ export default function Form({ item, isLoading }: Props) {
       </Flex>
       <Divider />
       {isLoading ? (
-        <Stack p='sm' gap={35}>
-          <Skeleton mt='sm' h={50} w='100%' />
-          <Skeleton h={200} w='100%' />
+        <Stack p="sm" gap={35}>
+          <Skeleton mt="sm" h={50} w="100%" />
+          <Skeleton h={200} w="100%" />
         </Stack>
       ) : (
-        <ScrollArea h={'79vh'} p='sm' pb={0}>
+        <ScrollArea h={"79vh"} p="sm" pb={0}>
           <Stack>
             <TextInput
-              label='Title'
+              label="Title"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
             />
             <DateTimePicker
-              label='Date'
+              label="Date"
               value={date}
               onDateChange={(date) => setDate(date)}
             />
-            <RichText
-              height={500}
-              label='description'
+            <Textarea
+              label="Description"
+              rows={10}
               value={description}
-              onChange={(text) => setDescription(text)}
+              onChange={(e) => setDescription(e.target.value)}
             />
           </Stack>
         </ScrollArea>
