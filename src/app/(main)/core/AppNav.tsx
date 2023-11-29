@@ -61,7 +61,7 @@ export default function AppNav() {
           <Link
             color='foreground'
             href='#'
-            className='px-6 py-2 text-sm bg-amber-600/60 border-amber-600 border'
+            className='px-6 py-2 text-sm bg-amber-600  tracking-wider'
           >
             Book Now
           </Link>

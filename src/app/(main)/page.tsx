@@ -21,7 +21,7 @@ export default async function Home() {
             {page.tagline}
           </p>
         </header>
-        <nav className='mt-36 flex gap-10'>
+        <nav className='mt-28 flex gap-10'>
           <Link href='#' className='flex flex-col gap-2 items-center'>
             <div className='border p-7 rounded-md bg-black/60 text-white'>
               <MdFastfood size='2rem' />
