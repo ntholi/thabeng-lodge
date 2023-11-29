@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@keyframes breath {
+  from {
+    background-size: 100%;
+  }
+  to {
+    background-size: 110%;
+  }
+}
+
+.hero {
+  animation: breath 10s ease-in-out alternate infinite;
+  scrollbar-width: 0 !important;
+}

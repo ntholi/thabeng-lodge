@@ -11,7 +11,7 @@ export default async function Home() {
         style={{
           backgroundImage: `url(${page.banner})`,
         }}
-        className={`h-screen flex flex-col justify-center items-center bg-blend-overlay  bg-black/40 bg-center bg-cover text-white`}
+        className={`hero h-screen flex flex-col justify-center items-center bg-blend-overlay  bg-black/40 bg-center bg-cover text-white`}
       >
         <header>
           <h1 className='border-white border-3 px-10 py-5 text-6xl uppercase'>
