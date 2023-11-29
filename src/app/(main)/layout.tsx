@@ -1,13 +1,13 @@
-import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
-import './globals.css';
-import AppNav from './core/AppNav';
+import type { Metadata } from "next";
+import { Jost } from "next/font/google";
+import "./globals.css";
+import AppNav from "./core/AppNav";
 
-const inter = Inter({ subsets: ['latin'] });
+const jost = Jost({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'Thabeng Lodge',
-  description: 'Thabeng Lodge',
+  title: "Thabeng Lodge",
+  description: "Thabeng Lodge",
 };
 
 export default function RootLayout({
@@ -16,8 +16,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang='en'>
-      <body className={inter.className}>
+    <html lang="en">
+      <body className={jost.className}>
         <AppNav />
         {children}
       </body>
