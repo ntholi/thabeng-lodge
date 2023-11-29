@@ -34,7 +34,7 @@ export default function Form({ page }: Props) {
     event.preventDefault();
     try {
       setSaving(true);
-      await setDoc(doc(db, 'pages', 'home-page'), form.values);
+      await setDoc(doc(db, 'pages', 'restaurant-page'), form.values);
     } catch (e) {
       console.log(e);
     } finally {

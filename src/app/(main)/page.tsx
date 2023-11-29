@@ -3,8 +3,13 @@ import { MdHotel, MdFastfood, MdCelebration } from 'react-icons/md';
 import { doc, getDoc } from 'firebase/firestore';
 import Link from 'next/link';
 
+async function getPage() {
+  const data = (await getDoc(doc(db, 'pages', 'home-page'))).data();
+  return data as unknown as HomePage;
+}
+
 export default async function Home() {
-  const page = (await getDoc(doc(db, 'pages', 'home-page'))).data() as HomePage;
+  const page = await getPage();
   return (
     <>
       <main
