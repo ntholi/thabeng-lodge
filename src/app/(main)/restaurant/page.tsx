@@ -1,6 +1,7 @@
 import { db } from "@/lib/firebase";
 import { doc, getDoc } from "firebase/firestore";
 import React from "react";
+import ItemCard from "./ItemCard";
 
 async function getPage() {
   const data = (await getDoc(doc(db, "pages", "restaurant-page"))).data();
@@ -22,6 +23,9 @@ export default async function RestaurantPage() {
       </header>
       <main className="container mx-auto mt-10 px-4">
         <h2 className="text-2xl font-bold">Our Menu</h2>
+        <section className="mt-10 grid grid-cols-12 gap-4">
+          <ItemCard />
+        </section>
       </main>
     </>
   );
