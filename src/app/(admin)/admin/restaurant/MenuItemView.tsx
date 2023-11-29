@@ -1,12 +1,4 @@
-import {
-  Card,
-  Title,
-  Text,
-  Divider,
-  Group,
-  Button,
-  Stack,
-} from "@mantine/core";
+import { Card, Text, Group, Button, Image, Badge } from "@mantine/core";
 import Link from "next/link";
 import { IconPencil, IconTrashXFilled } from "@tabler/icons-react";
 import { modals } from "@mantine/modals";
@@ -36,36 +28,44 @@ export default function MenuItemView({ item }: Props) {
 
   return (
     <Card shadow="sm" padding="lg" radius="md" withBorder>
-      <Stack justify="space-between" h="100%">
-        <div>
-          <Title order={4}> {item.name}</Title>
-          <Divider color="gray" mt="xs" mb="lg" />
-          <Text>{item.description}</Text>
-        </div>
-        <Group grow mt="xl">
-          <Button
-            variant="outline"
-            color="dark"
-            size="xs"
-            component={Link}
-            href={`/admin/restaurant/${item.id}`}
-            leftSection={
-              <IconPencil color="gray" size="0.9rem" aria-label="edit" />
-            }
-          >
-            Edit
-          </Button>
-          <Button
-            variant="outline"
-            color="red"
-            size="xs"
-            leftSection={<IconTrashXFilled size="0.9rem" />}
-            onClick={openDeleteModal}
-          >
-            Delete
-          </Button>
-        </Group>
-      </Stack>
+      <Card.Section>
+        <Image src={item.image} height={160} alt="Norway" />
+      </Card.Section>
+
+      <Group justify="space-between" mt="md" mb="xs">
+        <Text fw={500}>{item.name}</Text>
+        <Badge color="green" variant="light">
+          M{item.price.toFixed(2)}
+        </Badge>
+      </Group>
+
+      <Text size="sm" c="dimmed">
+        {item.description}
+      </Text>
+
+      <Group grow mt="xl">
+        <Button
+          variant="outline"
+          color="dark"
+          size="xs"
+          component={Link}
+          href={`/admin/restaurant/${item.id}`}
+          leftSection={
+            <IconPencil color="gray" size="0.9rem" aria-label="edit" />
+          }
+        >
+          Edit
+        </Button>
+        <Button
+          variant="outline"
+          color="red"
+          size="xs"
+          leftSection={<IconTrashXFilled size="0.9rem" />}
+          onClick={openDeleteModal}
+        >
+          Delete
+        </Button>
+      </Group>
     </Card>
   );
 }

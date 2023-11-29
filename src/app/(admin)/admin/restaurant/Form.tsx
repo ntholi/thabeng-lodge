@@ -61,20 +61,22 @@ export default function Form({ page }: Props) {
           </Button>
         </Flex>
       </Paper>
-      <Grid p="sm" pb={0}>
-        <Grid.Col span={6}>
-          <TextInput
-            label="Description"
-            {...form.getInputProps("description")}
-          />
-          <ImagePicker
-            height={150}
-            imageRef={"pages/restaurant/banner"}
-            label="Banner Image"
-            {...form.getInputProps("banner")}
-          />
-        </Grid.Col>
-      </Grid>
+      <Stack
+        p="sm"
+        pb={0}
+        w={{
+          base: "100%",
+          md: "60%",
+        }}
+      >
+        <TextInput label="Description" {...form.getInputProps("description")} />
+        <ImagePicker
+          height={150}
+          imageRef={"pages/restaurant/banner"}
+          label="Banner Image"
+          {...form.getInputProps("banner")}
+        />
+      </Stack>
     </Box>
   );
 }
