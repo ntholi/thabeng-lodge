@@ -19,7 +19,11 @@ export default function AppNav() {
   const menuItems = ['Home', 'Events', 'Menu', 'About Us'];
 
   return (
-    <Navbar onMenuOpenChange={setIsMenuOpen} maxWidth='xl' className='absolute'>
+    <Navbar
+      onMenuOpenChange={setIsMenuOpen}
+      maxWidth='xl'
+      className='absolute dark bg-transparent'
+    >
       <NavbarContent>
         <NavbarMenuToggle
           aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
