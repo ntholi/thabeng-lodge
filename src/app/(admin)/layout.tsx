@@ -1,13 +1,14 @@
 // Import styles of packages that you've installed.
 // All packages except `@mantine/hooks` require styles imports
-import '@mantine/core/styles.css';
+import "@mantine/core/styles.css";
 
-import { MantineProvider, ColorSchemeScript } from '@mantine/core';
-import AppShell from './appshell/AppShell';
+import { MantineProvider, ColorSchemeScript } from "@mantine/core";
+import AppShell from "./appshell/AppShell";
+import { Providers } from "./providers";
 
 export const metadata = {
-  title: 'Thabeng Admin',
-  description: 'Thabeng Admin',
+  title: "Thabeng Admin",
+  description: "Thabeng Admin",
 };
 
 export default function RootLayout({
@@ -16,14 +17,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang='en'>
+    <html lang="en">
       <head>
         <ColorSchemeScript />
       </head>
       <body>
-        <MantineProvider>
+        <Providers>
           <AppShell>{children}</AppShell>
-        </MantineProvider>
+        </Providers>
       </body>
     </html>
   );
