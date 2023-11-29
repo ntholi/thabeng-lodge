@@ -3,6 +3,7 @@ import {
   Box,
   Button,
   Flex,
+  Grid,
   Paper,
   ScrollArea,
   Stack,
@@ -17,14 +18,15 @@ import { db } from '@/lib/firebase';
 import ImagePicker from '../../core/ImagePicker';
 
 type Props = {
-  page: HomePage | null | undefined;
+  page: RestaurantPage | null | undefined;
 };
+
 export default function Form({ page }: Props) {
   const [saving, setSaving] = useState(false);
-  const form = useForm<HomePage>({
+  const form = useForm<RestaurantPage>({
     initialValues: {
       banner: page?.banner || '',
-      tagline: page?.tagline || '',
+      description: page?.description || '',
     },
   });
 
@@ -44,28 +46,29 @@ export default function Form({ page }: Props) {
     <Box component='form' onSubmit={handleSubmit}>
       <Paper shadow='xs' p='sm' m='sm' mt={0} mb='md'>
         <Flex justify='space-between'>
-          <Title size={20}>Home Page</Title>
+          <Title size={20}>Restaurant Page</Title>
           <Button type='submit' loading={saving} color='dark'>
             Save
           </Button>
         </Flex>
       </Paper>
       <ScrollArea h={'79vh'} p='sm' pb={0}>
-        <Stack>
-          <TextInput label='Tagline' {...form.getInputProps('tagline')} />
-          <Paper
-            w={{
-              base: '100%',
-              md: '50%',
-            }}
-          >
+        <Grid>
+          <Grid.Col>
             <ImagePicker
-              imageRef={'pages/home-page'}
+              height={150}
+              imageRef={'pages/restaurant/banner'}
               label='Banner Image'
               {...form.getInputProps('banner')}
             />
-          </Paper>
-        </Stack>
+          </Grid.Col>
+          <Grid.Col>
+            <TextInput
+              label='Description'
+              {...form.getInputProps('description')}
+            />
+          </Grid.Col>
+        </Grid>
       </ScrollArea>
     </Box>
   );
