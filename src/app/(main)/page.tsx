@@ -15,7 +15,7 @@ export default async function Home() {
       >
         <header>
           <h1 className='border-white border-3 px-10 py-5 text-6xl uppercase'>
-            Thabeng Lodge
+            Thabeng
           </h1>
           <p className='mt-5 uppercase tracking-wide text-center'>
             {page.tagline}
