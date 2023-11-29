@@ -46,8 +46,8 @@ export default function AppNav() {
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link color='foreground' href='#'>
-            Menu
+          <Link color='foreground' href='/restaurant'>
+            Restaurant
           </Link>
         </NavbarItem>
         <NavbarItem>
