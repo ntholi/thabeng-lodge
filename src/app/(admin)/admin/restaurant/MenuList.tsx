@@ -21,7 +21,7 @@ export default function MenuList() {
 
   useEffect(() => {
     return onSnapshot(
-      query(collection(db, "restaurant-menu"), orderBy("dateCreated", "desc")),
+      query(collection(db, "restaurant-menu"), orderBy("dateUpdated", "desc")),
       (snapshot) => {
         setItems([]);
         snapshot.forEach((doc) => {
@@ -47,7 +47,7 @@ export default function MenuList() {
   };
 
   return (
-    <SimpleGrid cols={{ base: 1, sm: 2, md: 3, lg: 4 }}>
+    <SimpleGrid p="sm" cols={{ base: 1, sm: 2, md: 3, lg: 4 }}>
       <NewPressButton onClick={handleCreate} isLoading={loading} />
       {items.map((item) => (
         <MenuItemView key={item.id} item={item} />

@@ -61,7 +61,7 @@ export default function Form({ page }: Props) {
           </Button>
         </Flex>
       </Paper>
-      <ScrollArea h={"79vh"} p="sm" pb={0}>
+      <ScrollArea p="sm" pb={0}>
         <Grid>
           <Grid.Col>
             <ImagePicker

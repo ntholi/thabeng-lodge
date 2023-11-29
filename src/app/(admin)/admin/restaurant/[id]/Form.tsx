@@ -3,7 +3,9 @@ import {
   Box,
   Button,
   Flex,
+  Grid,
   Group,
+  NumberInput,
   Paper,
   ScrollArea,
   Stack,
@@ -18,6 +20,7 @@ import { doc, serverTimestamp, setDoc } from "firebase/firestore";
 import { db } from "@/lib/firebase";
 import { useRouter } from "next/navigation";
 import { IconArrowLeft } from "@tabler/icons-react";
+import ImagePicker from "@/app/(admin)/core/ImagePicker";
 
 type Props = {
   item: MenuItem;
@@ -73,11 +76,26 @@ export default function Form({ item }: Props) {
           </Group>
         </Flex>
       </Paper>
-      <ScrollArea h={"79vh"} p="sm" pb={0}>
-        <Stack>
-          <TextInput label="Name" {...form.getInputProps("name")} />
-        </Stack>
-      </ScrollArea>
+      <Grid>
+        <Grid.Col span={6}>
+          <Stack>
+            <TextInput label="Name" {...form.getInputProps("name")} />
+            <TextInput
+              label="Description"
+              {...form.getInputProps("description")}
+            />
+            <NumberInput label="Price" {...form.getInputProps("price")} />
+          </Stack>
+        </Grid.Col>
+        <Grid.Col span={6}>
+          <ImagePicker
+            height={200}
+            imageRef={`pages/restaurant-menu/${item.id}`}
+            label="Image"
+            {...form.getInputProps("image")}
+          />
+        </Grid.Col>
+      </Grid>
     </Box>
   );
 }

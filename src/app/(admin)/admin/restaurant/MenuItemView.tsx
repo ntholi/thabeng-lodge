@@ -30,7 +30,7 @@ export default function MenuItemView({ item }: Props) {
       labels: { confirm: "Delete", cancel: "Cancel" },
       confirmProps: { color: "red" },
       onConfirm: async () => {
-        await deleteDoc(doc(db, "press", item.id));
+        await deleteDoc(doc(db, "restaurant-menu", item.id));
       },
     });
 
@@ -48,7 +48,7 @@ export default function MenuItemView({ item }: Props) {
             color="dark"
             size="xs"
             component={Link}
-            href={`/admin/press/${item.id}`}
+            href={`/admin/restaurant/${item.id}`}
             leftSection={
               <IconPencil color="gray" size="0.9rem" aria-label="edit" />
             }
