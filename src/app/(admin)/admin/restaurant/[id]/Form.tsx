@@ -57,26 +57,24 @@ export default function Form({ item }: Props) {
     <Box component="form" onSubmit={handleSubmit}>
       <Paper shadow="xs" p="sm" m="sm" mt={0} mb="md">
         <Flex justify="space-between">
-          <Group>
-            <Button
-              type="submit"
-              variant="outline"
-              onClick={() => router.back()}
-              leftSection={
-                <IconArrowLeft color="gray" size="1.2rem" aria-label="back" />
-              }
-              loading={saving}
-              color="dark"
-            >
-              Back
-            </Button>
-            <Button type="submit" loading={saving} color="dark">
-              Save
-            </Button>
-          </Group>
+          <Button
+            type="submit"
+            variant="outline"
+            onClick={() => router.back()}
+            leftSection={
+              <IconArrowLeft color="gray" size="1.2rem" aria-label="back" />
+            }
+            loading={saving}
+            color="dark"
+          >
+            Back
+          </Button>
+          <Button type="submit" loading={saving} color="dark">
+            Save
+          </Button>
         </Flex>
       </Paper>
-      <Grid>
+      <Grid p="sm">
         <Grid.Col span={6}>
           <Stack>
             <TextInput label="Name" {...form.getInputProps("name")} />

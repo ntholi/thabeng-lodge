@@ -61,24 +61,20 @@ export default function Form({ page }: Props) {
           </Button>
         </Flex>
       </Paper>
-      <ScrollArea p="sm" pb={0}>
-        <Grid>
-          <Grid.Col>
-            <ImagePicker
-              height={150}
-              imageRef={"pages/restaurant/banner"}
-              label="Banner Image"
-              {...form.getInputProps("banner")}
-            />
-          </Grid.Col>
-          <Grid.Col>
-            <TextInput
-              label="Description"
-              {...form.getInputProps("description")}
-            />
-          </Grid.Col>
-        </Grid>
-      </ScrollArea>
+      <Grid p="sm" pb={0}>
+        <Grid.Col span={6}>
+          <TextInput
+            label="Description"
+            {...form.getInputProps("description")}
+          />
+          <ImagePicker
+            height={150}
+            imageRef={"pages/restaurant/banner"}
+            label="Banner Image"
+            {...form.getInputProps("banner")}
+          />
+        </Grid.Col>
+      </Grid>
     </Box>
   );
 }
