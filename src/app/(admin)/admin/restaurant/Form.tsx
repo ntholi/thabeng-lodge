@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import {
   Box,
   Button,
@@ -9,13 +9,21 @@ import {
   Stack,
   TextInput,
   Title,
-} from '@mantine/core';
-import '@mantine/tiptap/styles.css';
-import { FormEvent, useState } from 'react';
-import { useForm } from '@mantine/form';
-import { doc, setDoc } from 'firebase/firestore';
-import { db } from '@/lib/firebase';
-import ImagePicker from '../../core/ImagePicker';
+} from "@mantine/core";
+import "@mantine/tiptap/styles.css";
+import { FormEvent, useEffect, useState } from "react";
+import { useForm } from "@mantine/form";
+import {
+  collection,
+  doc,
+  onSnapshot,
+  orderBy,
+  query,
+  setDoc,
+} from "firebase/firestore";
+import { db } from "@/lib/firebase";
+import ImagePicker from "../../core/ImagePicker";
+import { useRouter } from "next/navigation";
 
 type Props = {
   page: RestaurantPage | null | undefined;
@@ -23,10 +31,11 @@ type Props = {
 
 export default function Form({ page }: Props) {
   const [saving, setSaving] = useState(false);
+
   const form = useForm<RestaurantPage>({
     initialValues: {
-      banner: page?.banner || '',
-      description: page?.description || '',
+      banner: page?.banner || "",
+      description: page?.description || "",
     },
   });
 
@@ -34,7 +43,7 @@ export default function Form({ page }: Props) {
     event.preventDefault();
     try {
       setSaving(true);
-      await setDoc(doc(db, 'pages', 'restaurant-page'), form.values);
+      await setDoc(doc(db, "pages", "restaurant-page"), form.values);
     } catch (e) {
       console.log(e);
     } finally {
@@ -43,29 +52,29 @@ export default function Form({ page }: Props) {
   }
 
   return (
-    <Box component='form' onSubmit={handleSubmit}>
-      <Paper shadow='xs' p='sm' m='sm' mt={0} mb='md'>
-        <Flex justify='space-between'>
+    <Box component="form" onSubmit={handleSubmit}>
+      <Paper shadow="xs" p="sm" m="sm" mt={0} mb="md">
+        <Flex justify="space-between">
           <Title size={20}>Restaurant Page</Title>
-          <Button type='submit' loading={saving} color='dark'>
+          <Button type="submit" loading={saving} color="dark">
             Save
           </Button>
         </Flex>
       </Paper>
-      <ScrollArea h={'79vh'} p='sm' pb={0}>
+      <ScrollArea h={"79vh"} p="sm" pb={0}>
         <Grid>
           <Grid.Col>
             <ImagePicker
               height={150}
-              imageRef={'pages/restaurant/banner'}
-              label='Banner Image'
-              {...form.getInputProps('banner')}
+              imageRef={"pages/restaurant/banner"}
+              label="Banner Image"
+              {...form.getInputProps("banner")}
             />
           </Grid.Col>
           <Grid.Col>
             <TextInput
-              label='Description'
-              {...form.getInputProps('description')}
+              label="Description"
+              {...form.getInputProps("description")}
             />
           </Grid.Col>
         </Grid>
