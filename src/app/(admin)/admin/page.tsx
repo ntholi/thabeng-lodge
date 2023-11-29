@@ -1,13 +1,12 @@
-import { Button } from '@mantine/core';
-import Link from 'next/link';
-import React from 'react';
+import { Title } from "@mantine/core";
+import React from "react";
 
 export default function AdminPage() {
   return (
     <div>
-      <Button component={Link} href='/'>
-        Next link button
-      </Button>
+      <Title ta="center" c="gray">
+        Admin Dashboard
+      </Title>
     </div>
   );
 }

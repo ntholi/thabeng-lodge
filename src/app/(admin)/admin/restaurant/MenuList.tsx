@@ -40,7 +40,7 @@ export default function MenuList() {
         body: "<p>Press body</p>",
         dateCreated: serverTimestamp(),
       });
-      router.push(`/admin/press/${item.id}`);
+      router.push(`/admin/restaurant/${item.id}`);
     } finally {
       setLoading(false);
     }

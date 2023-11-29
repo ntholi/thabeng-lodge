@@ -9,4 +9,5 @@ interface MenuItem {
   description: string;
   price: number;
   image: string;
+  dateUpdated: any;
 }

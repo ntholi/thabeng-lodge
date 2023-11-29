@@ -29,9 +29,11 @@ export default function Form({ item }: Props) {
   const form = useForm<MenuItem>({
     initialValues: {
       id: item?.id || "",
-      title: item?.title || "",
-      body: item?.body || "",
-      dateCreated: serverTimestamp(),
+      name: item?.name || "",
+      description: item?.description || "",
+      price: item?.price || 0,
+      image: item?.image || "",
+      dateUpdated: serverTimestamp(),
     },
   });
 
@@ -39,8 +41,8 @@ export default function Form({ item }: Props) {
     event.preventDefault();
     try {
       setSaving(true);
-      await setDoc(doc(db, "press", item.id), form.values);
-      router.push("/admin/press");
+      await setDoc(doc(db, "restaurant-menu", item.id), form.values);
+      router.push("/admin/restaurant");
     } catch (error) {
       console.log(error);
     } finally {
@@ -52,7 +54,6 @@ export default function Form({ item }: Props) {
     <Box component="form" onSubmit={handleSubmit}>
       <Paper shadow="xs" p="sm" m="sm" mt={0} mb="md">
         <Flex justify="space-between">
-          <Title size={20}>Press</Title>
           <Group>
             <Button
               type="submit"
@@ -74,8 +75,7 @@ export default function Form({ item }: Props) {
       </Paper>
       <ScrollArea h={"79vh"} p="sm" pb={0}>
         <Stack>
-          <TextInput label="Title" {...form.getInputProps("title")} />
-          <RichText height={500} label="Body" {...form.getInputProps("body")} />
+          <TextInput label="Name" {...form.getInputProps("name")} />
         </Stack>
       </ScrollArea>
     </Box>
