@@ -6,8 +6,8 @@ import { MantineProvider, ColorSchemeScript } from '@mantine/core';
 import AppShell from './appshell/AppShell';
 
 export const metadata = {
-  title: 'THPPY Admin',
-  description: 'THPPY Admin',
+  title: 'Thabeng Admin',
+  description: 'Thabeng Admin',
 };
 
 export default function RootLayout({
