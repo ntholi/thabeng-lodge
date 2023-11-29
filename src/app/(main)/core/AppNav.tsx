@@ -56,6 +56,17 @@ export default function AppNav() {
           </Link>
         </NavbarItem>
       </NavbarContent>
+      <NavbarContent justify='end'>
+        <NavbarItem className='hidden lg:flex'>
+          <Link
+            color='foreground'
+            href='#'
+            className='px-6 py-2 text-sm bg-amber-600/60 border-amber-600 border'
+          >
+            Book Now
+          </Link>
+        </NavbarItem>
+      </NavbarContent>
       <NavbarMenu>
         {menuItems.map((item, index) => (
           <NavbarMenuItem key={`${item}-${index}`}>
