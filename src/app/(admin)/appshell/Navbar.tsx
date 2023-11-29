@@ -1,6 +1,5 @@
 import { NavLink } from '@mantine/core';
 import {
-  IconBrandWechat,
   IconCalendarEvent,
   IconChevronRight,
   IconHome,
@@ -13,6 +12,7 @@ export default function Navbar() {
     <nav>
       <NavLink
         label='Home Page'
+        href={'/admin/home'}
         leftSection={<IconHome size='1rem' stroke={1.5} />}
         rightSection={<IconChevronRight size='0.8rem' stroke={1.5} />}
       />

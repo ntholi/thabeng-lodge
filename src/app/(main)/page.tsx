@@ -1,9 +1,15 @@
+import { db } from '@/lib/firebase';
 import { Button } from '@nextui-org/button';
+import { doc, getDoc } from 'firebase/firestore';
 
-export default function Home() {
+export default async function Home() {
+  const page = (await getDoc(doc(db, 'pages', 'home-page'))).data() as HomePage;
   return (
-    <main>
-      <Button>Click Me</Button>
-    </main>
+    <>
+      <header className='mt-20'>here: {page.tagline}</header>
+      <main>
+        <Button>Click Me</Button>
+      </main>
+    </>
   );
 }
