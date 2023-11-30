@@ -1,15 +1,22 @@
 import { db } from "@/lib/firebase";
-import { doc, getDoc } from "firebase/firestore";
-import React from "react";
+import { collection, doc, getDoc, getDocs } from "firebase/firestore";
+import React, { Suspense } from "react";
 import ItemCard from "./ItemCard";
+import ItemList from "./ItemList";
 
-async function getPage() {
+const getPage = async () => {
   const data = (await getDoc(doc(db, "pages", "restaurant-page"))).data();
   return data as unknown as RestaurantPage;
-}
+};
+
+const getItems = async () => {
+  const data = getDocs(collection(db, "restaurant-menu"));
+  return data;
+};
 
 export default async function RestaurantPage() {
   const page = await getPage();
+  const itemsPromise = getItems();
   return (
     <>
       <header
@@ -23,9 +30,9 @@ export default async function RestaurantPage() {
       </header>
       <main className="container mx-auto mt-10 px-4">
         <h2 className="text-2xl font-bold">Our Menu</h2>
-        <section className="mt-10 grid grid-cols-12 gap-4">
-          <ItemCard />
-        </section>
+        <Suspense fallback={<div>Loading...</div>}>
+          <ItemList promiseDocs={itemsPromise} />
+        </Suspense>
       </main>
     </>
   );
