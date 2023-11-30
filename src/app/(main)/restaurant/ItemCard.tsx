@@ -9,7 +9,7 @@ type Props = {
 export default function ItemCard({ item }: Props) {
   return (
     <Card isFooterBlurred className={"h-full w-full"}>
-      <CardHeader className="absolute top-0 z-10 flex-col items-start bg-gradient-to-b from-black/25 to-black/0 pb-10">
+      <CardHeader className="absolute top-0 z-10 flex-col items-start bg-gradient-to-b from-black/50 to-black/0 pb-10">
         <h4 className="text-sm font-bold text-green-50">
           M{item.price.toFixed(2)}
         </h4>

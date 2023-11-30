@@ -18,21 +18,25 @@ export default async function EventList({ promiseDocs }: Props) {
 
   return (
     <div className="space-y-3">
-      {data.map((item) => (
-        <article
-          key={item.id}
-          className="flex cursor-pointer items-center gap-5 rounded border-b border-zinc-600 p-2 pb-5  hover:bg-zinc-800"
-        >
-          <div className="rounded-full bg-white p-3 text-black">
-            <MdOutlineEvent className="text-xl" />
-          </div>
-          <div className="space-y-1">
-            <h3 className="font-semibold">{item.title}</h3>
-            <p className="text-sm text-gray-400">{toDate(item.date)}</p>
-            <p className="text-sm">{shorten(item.description)}</p>
-          </div>
-        </article>
-      ))}
+      {data.length > 0 ? (
+        data.map((item) => (
+          <article
+            key={item.id}
+            className="flex cursor-pointer items-center gap-5 rounded border-b border-zinc-600 p-2 pb-5  hover:bg-zinc-800"
+          >
+            <div className="rounded-full bg-white p-3 text-black">
+              <MdOutlineEvent className="text-xl" />
+            </div>
+            <div className="space-y-1">
+              <h3 className="font-semibold">{item.title}</h3>
+              <p className="text-sm text-gray-400">{toDate(item.date)}</p>
+              <p className="text-sm">{shorten(item.description)}</p>
+            </div>
+          </article>
+        ))
+      ) : (
+        <NoEvent />
+      )}
     </div>
   );
 }
@@ -40,7 +44,7 @@ export default async function EventList({ promiseDocs }: Props) {
 function NoEvent() {
   return (
     <div className="flex items-center justify-center">
-      <p>No events yet</p>
+      <p>No Upcoming Events</p>
     </div>
   );
 }

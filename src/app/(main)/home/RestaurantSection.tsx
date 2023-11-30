@@ -8,7 +8,7 @@ export default function RestaurantSection() {
   const menuItems = getDocs(collection(db, "restaurant-menu"));
   return (
     <section>
-      <h2 className="text-3xl font-bold">Restaurant</h2>
+      <h2 className="text-3xl font-bold text-amber-800">Restaurant</h2>
       <Divider className="mt-1" />
       <Suspense fallback={<div>Loading...</div>}>
         <div className="grid grid-cols-12 gap-10 pt-10">
