@@ -8,7 +8,7 @@ import { MdAccessTime } from "react-icons/md";
 export default function EventsSection() {
   const menuItems = getDocs(collection(db, "events"));
   return (
-    <section className="min-h-full rounded-md bg-zinc-900 p-5 text-white">
+    <section className="h-4/5 rounded-md bg-zinc-900 p-5 text-white">
       <header className="flex justify-between">
         <h2 className="text-3xl font-bold">Events</h2>
         <MdAccessTime className="text-3xl" />
