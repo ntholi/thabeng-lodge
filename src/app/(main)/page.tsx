@@ -5,6 +5,7 @@ import Link from "next/link";
 import RestaurantSection from "./home/RestaurantSection";
 import EventsSection from "./home/EventsSection";
 import PageScroller from "./core/PageScroller";
+import Footer from "./core/Footer";
 
 async function getPage() {
   const data = (await getDoc(doc(db, "pages", "home-page"))).data();
@@ -59,6 +60,9 @@ export default async function Home() {
             <EventsSection />
           </aside>
         </main>
+      </div>
+      <div>
+        <Footer />
       </div>
     </PageScroller>
   );
