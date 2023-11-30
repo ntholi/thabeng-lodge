@@ -42,13 +42,13 @@ export default function AppNav() {
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link color="foreground" href="/events">
-            Events
+          <Link color="foreground" href="/restaurant">
+            Restaurant
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link color="foreground" href="/restaurant">
-            Restaurant
+          <Link color="foreground" href="/events">
+            Events
           </Link>
         </NavbarItem>
         <NavbarItem>
