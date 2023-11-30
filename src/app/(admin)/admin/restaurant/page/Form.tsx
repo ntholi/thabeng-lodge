@@ -22,7 +22,7 @@ import {
   setDoc,
 } from "firebase/firestore";
 import { db } from "@/lib/firebase";
-import ImagePicker from "../../core/ImagePicker";
+import ImagePicker from "../../../core/ImagePicker";
 import { useRouter } from "next/navigation";
 
 type Props = {
@@ -61,17 +61,9 @@ export default function Form({ page }: Props) {
           </Button>
         </Flex>
       </Paper>
-      <Stack
-        p="sm"
-        pb={0}
-        w={{
-          base: "100%",
-          md: "60%",
-        }}
-      >
+      <Stack p="sm">
         <TextInput label="Description" {...form.getInputProps("description")} />
         <ImagePicker
-          height={150}
           imageRef={"pages/restaurant/banner"}
           label="Banner Image"
           {...form.getInputProps("banner")}
