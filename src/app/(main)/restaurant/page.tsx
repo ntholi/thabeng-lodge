@@ -1,8 +1,7 @@
 import { db } from "@/lib/firebase";
 import { collection, doc, getDoc, getDocs } from "firebase/firestore";
 import React, { Suspense } from "react";
-import ItemCard from "./ItemCard";
-import ItemList from "./ItemList";
+import RestaurantMenuList from "./RestaurantMenuList";
 import { Divider } from "@nextui-org/divider";
 
 const getPage = async () => {
@@ -33,7 +32,9 @@ export default async function RestaurantPage() {
         <h2 className="text-2xl font-bold">Our Menu</h2>
         <Divider className="mt-1" />
         <Suspense fallback={<div>Loading...</div>}>
-          <ItemList promiseDocs={itemsPromise} />
+          <div className="grid grid-cols-12 gap-10 pt-10">
+            <RestaurantMenuList promiseDocs={itemsPromise} />
+          </div>
         </Suspense>
       </main>
     </>

@@ -2,6 +2,7 @@ import { db } from "@/lib/firebase";
 import { MdHotel, MdFastfood, MdCelebration } from "react-icons/md";
 import { doc, getDoc } from "firebase/firestore";
 import Link from "next/link";
+import RestaurantSection from "./home/RestaurantSection";
 
 async function getPage() {
   const data = (await getDoc(doc(db, "pages", "home-page"))).data();
@@ -47,6 +48,7 @@ export default async function Home() {
           </Link>
         </nav>
       </main>
+      <RestaurantSection />
     </>
   );
 }
