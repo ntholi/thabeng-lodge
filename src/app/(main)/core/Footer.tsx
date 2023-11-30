@@ -1,13 +1,13 @@
 import { db } from "@/lib/firebase";
 import { DocumentSnapshot, doc, getDoc } from "firebase/firestore";
-import Image from "next/image";
+import { Image } from "@nextui-org/image";
 import Link from "next/link";
 import { Suspense } from "react";
 
 export default async function FooterWrapper() {
   const snapshot = getDoc(doc(db, "pages", "about-us"));
   return (
-    <footer className="h-screen">
+    <footer className="flex h-screen items-end pe-28">
       <Suspense fallback={<div>Loading...</div>}>
         <Footer docSnapshot={snapshot} />
       </Suspense>
@@ -22,7 +22,7 @@ type Props = {
 async function Footer({ docSnapshot }: Props) {
   const page = (await docSnapshot).data() as AboutUs;
   return (
-    <div className="mx-auto px-4 pt-16 sm:max-w-xl md:max-w-full md:px-24 lg:max-w-screen-xl lg:px-8">
+    <div className="container mx-auto px-4 pt-16 sm:max-w-xl md:max-w-full md:px-24 lg:w-screen lg:px-28">
       <div className="row-gap-6 mb-8 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
         <div className="sm:col-span-2">
           <Link
@@ -31,7 +31,7 @@ async function Footer({ docSnapshot }: Props) {
             title="Company"
             className="inline-flex items-center"
           >
-            <img
+            <Image
               src={"/images/logo.png"}
               className="h-32 object-contain"
               alt="logo"
