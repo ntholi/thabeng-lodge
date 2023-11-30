@@ -3,6 +3,7 @@ import { collection, doc, getDoc, getDocs } from "firebase/firestore";
 import React, { Suspense } from "react";
 import ItemCard from "./ItemCard";
 import ItemList from "./ItemList";
+import { Divider } from "@nextui-org/divider";
 
 const getPage = async () => {
   const data = (await getDoc(doc(db, "pages", "restaurant-page"))).data();
@@ -30,6 +31,7 @@ export default async function RestaurantPage() {
       </header>
       <main className="container mx-auto mt-10 px-4 md:px-16">
         <h2 className="text-2xl font-bold">Our Menu</h2>
+        <Divider className="mt-1" />
         <Suspense fallback={<div>Loading...</div>}>
           <ItemList promiseDocs={itemsPromise} />
         </Suspense>

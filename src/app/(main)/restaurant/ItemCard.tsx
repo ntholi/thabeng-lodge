@@ -14,7 +14,7 @@ export default function ItemCard({ item }: Props) {
         <h4 className="text-sm font-bold text-green-50">
           M{item.price.toFixed(2)}
         </h4>
-        <h3 className="text-3xl font-medium text-white">{item.name}</h3>
+        <h3 className="text-2xl font-medium text-white">{item.name}</h3>
       </CardHeader>
       <Image
         removeWrapper
