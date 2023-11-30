@@ -9,6 +9,7 @@ export default function RestaurantSection() {
   return (
     <section>
       <h2 className="text-3xl font-bold">Restaurant</h2>
+      <Divider className="mt-1" />
       <Suspense fallback={<div>Loading...</div>}>
         <div className="grid grid-cols-12 gap-10 pt-10">
           <RestaurantMenuList promiseDocs={menuItems} />

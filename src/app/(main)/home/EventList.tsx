@@ -1,4 +1,4 @@
-import { DocumentData, QuerySnapshot } from "firebase/firestore";
+import { DocumentData, QuerySnapshot, Timestamp } from "firebase/firestore";
 import React from "react";
 import { Event } from "../events/modals";
 import { MdOutlineEvent } from "react-icons/md";
@@ -17,18 +17,20 @@ export default async function EventList({ promiseDocs }: Props) {
   });
 
   return (
-    <div>
+    <div className="space-y-3">
       {data.map((item) => (
         <article
           key={item.id}
-          className="mb-5 flex items-center gap-5 border-b border-zinc-500 pb-3"
+          className="flex cursor-pointer items-center gap-5 rounded border-b border-zinc-600 p-2 pb-5  hover:bg-zinc-800"
         >
           <div className="rounded-full bg-white p-3 text-black">
             <MdOutlineEvent className="text-xl" />
           </div>
-          <div>
+          <div className="space-y-1">
             <h3 className="font-semibold">{item.title}</h3>
-            <p className="text-sm">{toDate(item.date)}</p>
+            <p className="text-sm text-gray-400">
+              {toDate(item.date)} | {toTime(item.date)}
+            </p>
             <p className="text-sm">{shorten(item.description)}</p>
           </div>
         </article>
@@ -41,12 +43,17 @@ function shorten(str: string) {
   return str.length > 35 ? str.substring(0, 35) + "..." : str;
 }
 
-function toDate(date: Date) {
-  console.log("date", date);
-  return new Date(date).toLocaleDateString("en-US", {
-    weekday: "long",
+function toDate(date: Timestamp) {
+  return date.toDate().toLocaleDateString("en-ZA", {
     year: "numeric",
-    month: "long",
+    month: "short",
     day: "numeric",
+  });
+}
+
+function toTime(date: Timestamp) {
+  return date.toDate().toLocaleTimeString("en-ZA", {
+    hour: "numeric",
+    minute: "numeric",
   });
 }

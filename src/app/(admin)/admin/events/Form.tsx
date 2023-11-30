@@ -40,7 +40,7 @@ export default function Form({ item, isLoading }: Props) {
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    console.log("submitting", { id }, { title }, { description });
+    console.log("submitting", { id }, { title }, { description }, { date });
     if (!id) return;
     await setDoc(doc(db, "events", id), {
       title,
