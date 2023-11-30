@@ -3,6 +3,8 @@ import {
   IconCalendarEvent,
   IconChevronRight,
   IconHome,
+  IconInfoCircle,
+  IconInfoSquareRounded,
   IconToolsKitchen2,
 } from "@tabler/icons-react";
 import Link from "next/link";
@@ -15,6 +17,12 @@ export default function Navbar() {
         label="Home Page"
         href={"/admin/home"}
         leftSection={<IconHome size="1rem" stroke={1.5} />}
+        rightSection={<IconChevronRight size="0.8rem" stroke={1.5} />}
+      />
+      <NavLink
+        label="About Us"
+        href={"/admin/about-us"}
+        leftSection={<IconInfoSquareRounded size="1rem" stroke={1.5} />}
         rightSection={<IconChevronRight size="0.8rem" stroke={1.5} />}
       />
       <NavLink
