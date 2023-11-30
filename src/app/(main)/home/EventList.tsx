@@ -37,6 +37,14 @@ export default async function EventList({ promiseDocs }: Props) {
   );
 }
 
+function NoEvent() {
+  return (
+    <div className="flex items-center justify-center">
+      <p>No events yet</p>
+    </div>
+  );
+}
+
 function shorten(str: string) {
   return str.length > 35 ? str.substring(0, 35) + "..." : str;
 }
