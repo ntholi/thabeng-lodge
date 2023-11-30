@@ -1,6 +1,6 @@
-import { Title } from '@mantine/core';
-import React from 'react';
+import { Title } from "@mantine/core";
+import React from "react";
 
 export default function Logo() {
-  return <Title order={3}>Thabeng Admin</Title>;
+  return <Title order={3}>Admin</Title>;
 }
