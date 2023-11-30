@@ -3,10 +3,11 @@ import {
   Box,
   Button,
   Flex,
+  Grid,
   Paper,
-  ScrollArea,
   Stack,
   TextInput,
+  Textarea,
   Title,
 } from "@mantine/core";
 import "@mantine/tiptap/styles.css";
@@ -14,17 +15,21 @@ import { FormEvent, useState } from "react";
 import { useForm } from "@mantine/form";
 import { doc, setDoc } from "firebase/firestore";
 import { db } from "@/lib/firebase";
-import ImagePicker from "../../core/ImagePicker";
 
 type Props = {
-  page: HomePage | null | undefined;
+  page: AboutUs | null | undefined;
 };
 export default function Form({ page }: Props) {
   const [saving, setSaving] = useState(false);
-  const form = useForm<HomePage>({
+  const form = useForm<AboutUs>({
     initialValues: {
-      banner: page?.banner || "",
-      tagline: page?.tagline || "",
+      phoneNumber: page?.phoneNumber || "",
+      email: page?.email || "",
+      address: page?.address || "",
+      facebook: page?.facebook || "",
+      instagram: page?.instagram || "",
+      twitter: page?.twitter || "",
+      aboutUs: page?.aboutUs || "",
     },
   });
 
@@ -50,23 +55,49 @@ export default function Form({ page }: Props) {
           </Button>
         </Flex>
       </Paper>
-      <ScrollArea h={"79vh"} p="sm" pb={0}>
-        <Stack>
-          <TextInput label="Tagline" {...form.getInputProps("tagline")} />
-          <Paper
-            w={{
-              base: "100%",
-              md: "50%",
-            }}
-          >
-            <ImagePicker
-              imageRef={"pages/about-us"}
-              label="Banner Image"
-              {...form.getInputProps("banner")}
+      <Box p="sm" pb={0}>
+        <Grid>
+          <Grid.Col span={6}>
+            <Stack>
+              <TextInput
+                label="Phone Number"
+                {...form.getInputProps("phoneNumber")}
+              />
+              <TextInput label="Email" {...form.getInputProps("email")} />
+              <TextInput
+                label="Physical Address"
+                {...form.getInputProps("address")}
+              />
+            </Stack>
+          </Grid.Col>
+          <Grid.Col span={6}>
+            <Stack>
+              <TextInput
+                label="Facebook"
+                type="url"
+                {...form.getInputProps("facebook")}
+              />
+              <TextInput
+                label="Instagram"
+                type="url"
+                {...form.getInputProps("instagram")}
+              />
+              <TextInput
+                label="Twitter"
+                type="url"
+                {...form.getInputProps("twitter")}
+              />
+            </Stack>
+          </Grid.Col>
+          <Grid.Col span={12}>
+            <Textarea
+              label="About Us"
+              rows={10}
+              {...form.getInputProps("aboutUs")}
             />
-          </Paper>
-        </Stack>
-      </ScrollArea>
+          </Grid.Col>
+        </Grid>
+      </Box>
     </Box>
   );
 }
