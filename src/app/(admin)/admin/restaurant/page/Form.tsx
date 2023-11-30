@@ -3,24 +3,15 @@ import {
   Box,
   Button,
   Flex,
-  Grid,
   Paper,
-  ScrollArea,
   Stack,
   TextInput,
   Title,
 } from "@mantine/core";
 import "@mantine/tiptap/styles.css";
-import { FormEvent, useEffect, useState } from "react";
+import { FormEvent, useState } from "react";
 import { useForm } from "@mantine/form";
-import {
-  collection,
-  doc,
-  onSnapshot,
-  orderBy,
-  query,
-  setDoc,
-} from "firebase/firestore";
+import { doc, setDoc } from "firebase/firestore";
 import { db } from "@/lib/firebase";
 import ImagePicker from "../../../core/ImagePicker";
 import { useRouter } from "next/navigation";

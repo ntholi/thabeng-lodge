@@ -1,6 +1,5 @@
-import { Card, CardHeader, CardBody, CardFooter } from "@nextui-org/card";
+import { Card, CardHeader, CardFooter } from "@nextui-org/card";
 import { Image } from "@nextui-org/image";
-import { Chip } from "@nextui-org/chip";
 import NextImage from "next/image";
 
 type Props = {
