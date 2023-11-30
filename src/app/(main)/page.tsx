@@ -51,7 +51,7 @@ export default async function Home() {
         </nav>
       </header>
       <div className="bg-amber-50">
-        <main className="container mx-auto grid min-h-screen grid-cols-12 gap-10 px-2  pt-10 md:px-4">
+        <main className="container mx-auto grid min-h-screen grid-cols-12 gap-10 px-2 pt-28 md:px-4">
           <div className="col-span-8">
             <RestaurantSection />
           </div>
