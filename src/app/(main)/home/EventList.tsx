@@ -28,9 +28,7 @@ export default async function EventList({ promiseDocs }: Props) {
           </div>
           <div className="space-y-1">
             <h3 className="font-semibold">{item.title}</h3>
-            <p className="text-sm text-gray-400">
-              {toDate(item.date)} | {toTime(item.date)}
-            </p>
+            <p className="text-sm text-gray-400">{toDate(item.date)}</p>
             <p className="text-sm">{shorten(item.description)}</p>
           </div>
         </article>
@@ -48,11 +46,6 @@ function toDate(date: Timestamp) {
     year: "numeric",
     month: "short",
     day: "numeric",
-  });
-}
-
-function toTime(date: Timestamp) {
-  return date.toDate().toLocaleTimeString("en-ZA", {
     hour: "numeric",
     minute: "numeric",
   });
