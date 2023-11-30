@@ -11,10 +11,10 @@ export default function ItemCard({ item }: Props) {
   return (
     <Card isFooterBlurred className={"h-full w-full"}>
       <CardHeader className="absolute top-0 z-10 flex-col items-start bg-gradient-to-b from-black/25 to-black/0 pb-10">
-        <Chip color="success" className="mb-2">
+        <h4 className="text-sm font-bold text-green-50">
           M{item.price.toFixed(2)}
-        </Chip>
-        <h4 className="text-xl font-medium text-white">{item.name}</h4>
+        </h4>
+        <h3 className="text-3xl font-medium text-white">{item.name}</h3>
       </CardHeader>
       <Image
         removeWrapper

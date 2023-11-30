@@ -16,7 +16,7 @@ export default async function ItemList({ promiseDocs }: Props) {
   return (
     <div className="grid grid-cols-12 gap-10 pt-10">
       {data.map((item) => (
-        <article key={item.id} className="col-span-3 h-72">
+        <article key={item.id} className="col-span-4 h-80">
           <ItemCard item={item} />
         </article>
       ))}
