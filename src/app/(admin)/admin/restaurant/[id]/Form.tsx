@@ -45,7 +45,7 @@ export default function Form({ item }: Props) {
     try {
       setSaving(true);
       await setDoc(doc(db, "restaurant-menu", item.id), form.values);
-      router.push("/admin/restaurant");
+      router.push("/admin/restaurant/menu");
     } catch (error) {
       console.log(error);
     } finally {
