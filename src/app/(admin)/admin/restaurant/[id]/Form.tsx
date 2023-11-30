@@ -4,18 +4,14 @@ import {
   Button,
   Flex,
   Grid,
-  Group,
   NumberInput,
   Paper,
-  ScrollArea,
   Stack,
   TextInput,
-  Title,
 } from "@mantine/core";
 import "@mantine/tiptap/styles.css";
 import { FormEvent, useState } from "react";
 import { useForm } from "@mantine/form";
-import RichText from "../../../core/RichText";
 import { doc, serverTimestamp, setDoc } from "firebase/firestore";
 import { db } from "@/lib/firebase";
 import { useRouter } from "next/navigation";
