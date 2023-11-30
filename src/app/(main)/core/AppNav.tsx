@@ -41,7 +41,7 @@ export default function AppNav() {
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link color="foreground" href="#">
+          <Link color="foreground" href="/events">
             Events
           </Link>
         </NavbarItem>
