@@ -4,6 +4,7 @@ import { doc, getDoc } from "firebase/firestore";
 import Link from "next/link";
 import RestaurantSection from "./home/RestaurantSection";
 import EventsSection from "./home/EventsSection";
+import PageScroller from "./core/PageScroller";
 
 async function getPage() {
   const data = (await getDoc(doc(db, "pages", "home-page"))).data();
@@ -13,12 +14,12 @@ async function getPage() {
 export default async function Home() {
   const page = await getPage();
   return (
-    <>
+    <PageScroller>
       <header
         style={{
           backgroundImage: `url(${page.banner})`,
         }}
-        className={`hero flex h-screen flex-col items-center justify-center bg-black/40  bg-cover bg-center text-white bg-blend-overlay`}
+        className={`hero component flex h-screen flex-col items-center justify-center bg-black/40  bg-cover bg-center text-white bg-blend-overlay`}
       >
         <div>
           <h1 className="border-3 border-white px-10 py-5 text-7xl uppercase">
@@ -59,6 +60,6 @@ export default async function Home() {
           </aside>
         </main>
       </div>
-    </>
+    </PageScroller>
   );
 }
