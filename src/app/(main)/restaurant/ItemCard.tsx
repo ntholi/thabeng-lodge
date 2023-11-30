@@ -1,6 +1,7 @@
 import { Card, CardHeader, CardBody, CardFooter } from "@nextui-org/card";
 import { Image } from "@nextui-org/image";
 import { Chip } from "@nextui-org/chip";
+import NextImage from "next/image";
 
 type Props = {
   item: MenuItem;
@@ -18,6 +19,9 @@ export default function ItemCard({ item }: Props) {
       <Image
         removeWrapper
         isZoomed
+        as={NextImage}
+        height={600}
+        width={600}
         alt="Relaxing app background"
         className="z-0 h-full w-full object-cover"
         src={item.image}
