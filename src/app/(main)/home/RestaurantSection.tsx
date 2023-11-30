@@ -12,7 +12,7 @@ export default function RestaurantSection() {
       <Divider className="mt-1" />
       <Suspense fallback={<div>Loading...</div>}>
         <div className="grid grid-cols-12 gap-10 pt-10">
-          <RestaurantMenuList promiseDocs={menuItems} />
+          <RestaurantMenuList promiseDocs={menuItems} itemHeight={"15rem"} />
         </div>
       </Suspense>
     </section>

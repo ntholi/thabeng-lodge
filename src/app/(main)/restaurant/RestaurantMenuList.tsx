@@ -4,8 +4,13 @@ import ItemCard from "./ItemCard";
 
 type Props = {
   promiseDocs: Promise<QuerySnapshot<DocumentData, DocumentData>>;
+  itemHeight?: number | string;
 };
-export default async function RestaurantMenuList({ promiseDocs }: Props) {
+
+export default async function RestaurantMenuList({
+  promiseDocs,
+  itemHeight = "20rem",
+}: Props) {
   const data = (await promiseDocs).docs.map((doc) => {
     const data = doc.data();
     return {
@@ -16,7 +21,13 @@ export default async function RestaurantMenuList({ promiseDocs }: Props) {
   return (
     <>
       {data.map((item) => (
-        <article key={item.id} className="col-span-4 h-80">
+        <article
+          key={item.id}
+          className="col-span-4"
+          style={{
+            height: itemHeight,
+          }}
+        >
           <ItemCard item={item} />
         </article>
       ))}
