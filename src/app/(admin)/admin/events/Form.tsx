@@ -16,7 +16,7 @@ import { FormEvent, use, useEffect, useState } from "react";
 import RichText from "../../core/RichText";
 import { doc, serverTimestamp, setDoc } from "firebase/firestore";
 import { db } from "@/lib/firebase";
-import { Event } from "@/lib/modals";
+import { Event } from "@/app/(main)/events/modals";
 import { DateTimePicker } from "@mantine/dates";
 
 type Props = {
