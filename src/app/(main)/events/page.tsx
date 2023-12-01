@@ -22,7 +22,7 @@ export default async function EventsPage() {
       <header className="flex h-[40vh] items-center justify-center bg-zinc-900 text-white">
         <h1 className="text-center text-5xl font-bold uppercase">Events</h1>
       </header>
-      <section className="container mx-auto mt-3 space-y-5 px-4 md:px-16">
+      <section className="container mx-auto mt-3 space-y-5 px-4 md:px-56">
         {events.map((event) => (
           <article
             key={event.id}
