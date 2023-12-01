@@ -24,16 +24,19 @@ export default function EventsSection() {
   );
   const menuItems = getDocs(q);
   return (
-    <section className="h-4/5 rounded-md bg-zinc-900 p-5 text-white">
+    <section className="h-[95%] rounded-md bg-zinc-900 p-5 text-white">
       <header className="flex justify-between">
         <h2 className="text-3xl font-bold">Events</h2>
         <MdAccessTime className="text-3xl" />
       </header>
       <Divider className="mt-1" />
       <Suspense fallback={<div>Loading...</div>}>
-        <div className="flex h-full flex-col justify-between pt-10">
+        <div className="flex h-full flex-col justify-between pb-5 pt-10 md:pb-10">
           <EventList promiseDocs={menuItems} />
-          <Link href={"/events"} className="border p-3 text-white">
+          <Link
+            href={"/events"}
+            className="border p-3 text-center text-white transition-colors duration-200 ease-in-out hover:bg-white hover:text-black"
+          >
             View All
           </Link>
         </div>
