@@ -1,4 +1,5 @@
 "use client";
+
 import {
   Box,
   Button,
@@ -11,41 +12,38 @@ import {
   Textarea,
   Title,
 } from "@mantine/core";
-import "@mantine/tiptap/styles.css";
-import { FormEvent, use, useEffect, useState } from "react";
-import RichText from "../../core/RichText";
-import { doc, serverTimestamp, setDoc } from "firebase/firestore";
+import { FormEvent, useEffect, useState } from "react";
+import { Timestamp, doc, serverTimestamp, setDoc } from "firebase/firestore";
 import { db } from "@/lib/firebase";
-import { Event } from "@/app/(main)/events/modals";
+import { Event } from "@/app/(admin)/admin/events/modals";
 import { DateTimePicker } from "@mantine/dates";
+import "@mantine/dates/styles.layer.css";
+import { useForm } from "@mantine/form";
 
 type Props = {
   item: Event;
   isLoading?: boolean;
 };
 export default function Form({ item, isLoading }: Props) {
-  const [saving, setSaving] = useState(false);
-  const [title, setTitle] = useState<string>("");
-  const [description, setDescription] = useState<string>("");
-  const [date, setDate] = useState<Date>(new Date());
-  const [id, setId] = useState<string | null>(null);
+  const form = useForm<Event>({
+    initialValues: {
+      id: item.id || "",
+      title: item.title || "",
+      description: item.description || "",
+    },
+  });
+  const [date, setDate] = useState<Date | null>(null);
 
   useEffect(() => {
-    if (item.id) {
-      setId(item.id);
-    }
-    setTitle(item.title);
-    setDescription(item.description);
+    form.setValues(item);
+    setDate(item.date?.toDate() || new Date());
   }, [item]);
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    console.log("submitting", { id }, { title }, { description }, { date });
-    if (!id) return;
-    await setDoc(doc(db, "events", id), {
-      title,
-      description,
-      date,
+    await setDoc(doc(db, "events", item.id), {
+      ...form.values,
+      date: date || new Date(),
       dateCreated: serverTimestamp(),
     });
   }
@@ -57,15 +55,10 @@ export default function Form({ item, isLoading }: Props) {
           <Skeleton width={200} h={35} />
         ) : (
           <Title size={20} fw={500}>
-            {title}
+            {form.values.title || "New Event"}
           </Title>
         )}
-        <Button
-          type="submit"
-          loading={saving}
-          color="dark"
-          disabled={isLoading}
-        >
+        <Button type="submit" color="dark" disabled={isLoading}>
           Save
         </Button>
       </Flex>
@@ -78,21 +71,17 @@ export default function Form({ item, isLoading }: Props) {
       ) : (
         <ScrollArea h={"79vh"} p="sm" pb={0}>
           <Stack>
-            <TextInput
-              label="Title"
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
-            />
+            <TextInput label="Title" {...form.getInputProps("title")} />
             <DateTimePicker
               label="Date"
+              placeholder="Select date"
               value={date}
-              onDateChange={(date) => setDate(date)}
+              onChange={setDate}
             />
             <Textarea
               label="Description"
               rows={10}
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
+              {...form.getInputProps("description")}
             />
           </Stack>
         </ScrollArea>

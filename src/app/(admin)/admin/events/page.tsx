@@ -17,12 +17,13 @@ import {
   doc,
   getDoc,
   onSnapshot,
+  orderBy,
   query,
   serverTimestamp,
 } from "firebase/firestore";
 import Form from "./Form";
 import { IconPlus, IconTrashXFilled } from "@tabler/icons-react";
-import { Event } from "@/app/(main)/events/modals";
+import { Event } from "@/app/(admin)/admin/events/modals";
 
 export default function ProgramsPage() {
   const [items, setItems] = useState<Event[]>([]);
@@ -31,7 +32,8 @@ export default function ProgramsPage() {
   const [isPending, startTransition] = useTransition();
 
   useEffect(() => {
-    return onSnapshot(query(collection(db, "events")), (snapshot) => {
+    const q = query(collection(db, "events"), orderBy("dateCreated", "desc"));
+    return onSnapshot(q, (snapshot) => {
       setItems([]);
       snapshot.forEach((doc) => {
         const item = doc.data() as Event;
