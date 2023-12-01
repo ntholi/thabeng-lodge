@@ -4,7 +4,6 @@ import { doc, getDoc } from "firebase/firestore";
 import Link from "next/link";
 import RestaurantSection from "./home/RestaurantSection";
 import EventsSection from "./home/EventsSection";
-import PageScroller from "./core/PageScroller";
 import Footer from "./core/Footer";
 
 async function getPage() {
@@ -15,12 +14,12 @@ async function getPage() {
 export default async function Home() {
   const page = await getPage();
   return (
-    <PageScroller>
+    <>
       <header
         style={{
           backgroundImage: `url(${page.banner})`,
         }}
-        className={`hero component flex h-screen flex-col items-center justify-center bg-black/40 bg-cover bg-center px-4 text-white bg-blend-overlay`}
+        className={`hero flex h-screen flex-col items-center justify-center bg-black/40 bg-cover bg-center px-4 text-white bg-blend-overlay`}
       >
         <div>
           <h1 className="border-3 border-white py-5 text-center text-5xl uppercase sm:px-10 sm:text-7xl">
@@ -64,6 +63,6 @@ export default async function Home() {
       <div>
         <Footer />
       </div>
-    </PageScroller>
+    </>
   );
 }
