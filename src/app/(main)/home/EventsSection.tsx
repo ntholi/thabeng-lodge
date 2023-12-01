@@ -18,7 +18,7 @@ import Link from "next/link";
 export default function EventsSection() {
   const q = query(
     collection(db, "events"),
-    limit(2),
+    limit(3),
     orderBy("date"),
     where("date", ">", Timestamp.fromDate(new Date())),
   );
