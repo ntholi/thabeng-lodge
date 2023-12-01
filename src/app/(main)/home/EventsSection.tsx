@@ -12,11 +12,13 @@ import {
 import { db } from "@/lib/firebase";
 import EventList from "./EventList";
 import { MdAccessTime } from "react-icons/md";
+import { Button } from "@nextui-org/button";
+import Link from "next/link";
 
 export default function EventsSection() {
   const q = query(
     collection(db, "events"),
-    limit(3),
+    limit(2),
     orderBy("date"),
     where("date", ">", Timestamp.fromDate(new Date())),
   );
@@ -29,8 +31,11 @@ export default function EventsSection() {
       </header>
       <Divider className="mt-1" />
       <Suspense fallback={<div>Loading...</div>}>
-        <div className="pt-10">
+        <div className="flex h-full flex-col justify-between pt-10">
           <EventList promiseDocs={menuItems} />
+          <Link href={"/events"} className="border p-3 text-white">
+            View All
+          </Link>
         </div>
       </Suspense>
     </section>
