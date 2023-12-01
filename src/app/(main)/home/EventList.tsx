@@ -1,6 +1,6 @@
 import { DocumentData, QuerySnapshot, Timestamp } from "firebase/firestore";
 import React from "react";
-import { Event } from "../events/modals";
+import { Event } from "../../(admin)/admin/events/modals";
 import { MdOutlineEvent } from "react-icons/md";
 
 type Props = {

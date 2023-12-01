@@ -5,12 +5,17 @@ import {
   getDocs,
   orderBy,
   query,
+  where,
 } from "firebase/firestore";
 import React from "react";
-import { Event } from "./modals";
+import { Event } from "../../(admin)/admin/events/modals";
 
 export default async function EventsPage() {
-  const q = query(collection(db, "events"), orderBy("date"));
+  const q = query(
+    collection(db, "events"),
+    orderBy("date"),
+    where("date", ">", Timestamp.fromDate(new Date())),
+  );
   const events = (await getDocs(q)).docs.map((doc) => {
     return {
       id: doc.id,

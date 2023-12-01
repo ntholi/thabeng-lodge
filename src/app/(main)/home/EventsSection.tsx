@@ -1,12 +1,26 @@
 import { Divider } from "@nextui-org/divider";
 import React, { Suspense } from "react";
-import { collection, getDocs } from "firebase/firestore";
+import {
+  Timestamp,
+  collection,
+  getDocs,
+  limit,
+  orderBy,
+  query,
+  where,
+} from "firebase/firestore";
 import { db } from "@/lib/firebase";
 import EventList from "./EventList";
 import { MdAccessTime } from "react-icons/md";
 
 export default function EventsSection() {
-  const menuItems = getDocs(collection(db, "events"));
+  const q = query(
+    collection(db, "events"),
+    limit(3),
+    orderBy("date"),
+    where("date", ">", Timestamp.fromDate(new Date())),
+  );
+  const menuItems = getDocs(q);
   return (
     <section className="h-4/5 rounded-md bg-zinc-900 p-5 text-white">
       <header className="flex justify-between">
