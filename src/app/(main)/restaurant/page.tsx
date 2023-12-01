@@ -42,7 +42,10 @@ export default async function RestaurantPage() {
         <Divider className="mt-1" />
         <Suspense fallback={<div>Loading...</div>}>
           <div className="grid grid-cols-12 pt-10 md:gap-10">
-            <RestaurantMenuList promiseDocs={itemsPromise} />
+            <RestaurantMenuList
+              promiseDocs={itemsPromise}
+              itemClassName="col-span-12 md:col-span-6 lg:col-span-4 2xl:col-span-3"
+            />
           </div>
         </Suspense>
       </main>
