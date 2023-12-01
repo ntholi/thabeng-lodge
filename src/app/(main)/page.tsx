@@ -51,7 +51,7 @@ export default async function Home() {
         </nav>
       </header>
       <div className="bg-amber-50">
-        <main className="container mx-auto min-h-screen grid-cols-12 px-2 pt-28 md:grid md:gap-10 md:px-4">
+        <main className="container mx-auto min-h-screen grid-cols-12 px-2 py-10 md:grid md:gap-10 md:px-4 md:pt-16">
           <div className="col-span-8">
             <RestaurantSection />
           </div>
@@ -59,9 +59,6 @@ export default async function Home() {
             <EventsSection />
           </aside>
         </main>
-      </div>
-      <div>
-        <Footer />
       </div>
     </>
   );

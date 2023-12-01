@@ -7,7 +7,7 @@ import { Suspense } from "react";
 export default async function FooterWrapper() {
   const snapshot = getDoc(doc(db, "pages", "about-us"));
   return (
-    <footer id="footer" className="flex h-screen items-end pb-32">
+    <footer id="footer" className="flex pb-32 pt-10">
       <Suspense fallback={<div>Loading...</div>}>
         <Footer docSnapshot={snapshot} />
       </Suspense>

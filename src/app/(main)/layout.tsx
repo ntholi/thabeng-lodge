@@ -21,6 +21,7 @@ export default function RootLayout({
       <body className={jost.className}>
         <AppNav />
         {children}
+        <Footer />
       </body>
     </html>
   );

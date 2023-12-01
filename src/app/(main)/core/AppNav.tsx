@@ -52,7 +52,7 @@ export default function AppNav() {
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link color="foreground" href="/#footer">
+          <Link color="foreground" href="#footer">
             About Us
           </Link>
         </NavbarItem>
