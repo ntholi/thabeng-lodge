@@ -26,7 +26,7 @@ export default function RestaurantSection() {
           <RestaurantMenuList
             promiseDocs={menuItems}
             itemHeight={"15rem"}
-            itemClassName="col-span-12 sm:col-span-6 xl:col-span-4"
+            itemClassName="col-span-6 xl:col-span-4"
           />
         </div>
       </Suspense>
