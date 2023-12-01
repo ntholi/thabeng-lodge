@@ -5,6 +5,7 @@ import Link from "next/link";
 import RestaurantSection from "./home/RestaurantSection";
 import EventsSection from "./home/EventsSection";
 import Footer from "./core/Footer";
+import BookingButton from "./booking/BookingButton";
 
 async function getPage() {
   const data = (await getDoc(doc(db, "pages", "home-page"))).data();
@@ -42,12 +43,12 @@ export default async function Home() {
             </div>
             Events
           </Link>
-          <Link href="#" className="flex flex-col items-center gap-2">
+          <BookingButton className="flex flex-col items-center gap-2">
             <div className="rounded-md border  bg-black/60 p-7 text-amber-100">
               <MdHotel className="text-xl sm:text-3xl" />
             </div>
             Bookings
-          </Link>
+          </BookingButton>
         </nav>
       </header>
       <div className="bg-amber-50">

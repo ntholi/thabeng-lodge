@@ -59,10 +59,7 @@ export default function AppNav() {
       </NavbarContent>
       <NavbarContent justify="end">
         <NavbarItem className="hidden lg:flex">
-          <BookingButton
-            href="#"
-            className="rounded-none border bg-amber-700 px-6  py-2 text-sm tracking-wider"
-          >
+          <BookingButton className="rounded-none border bg-amber-700 px-6  py-2 text-sm tracking-wider">
             Book Now
           </BookingButton>
         </NavbarItem>

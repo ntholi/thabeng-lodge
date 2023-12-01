@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import {
   Modal,
@@ -5,20 +6,23 @@ import {
   ModalHeader,
   ModalBody,
   ModalFooter,
-  Button,
   useDisclosure,
-} from "@nextui-org/react";
+} from "@nextui-org/modal";
+import { Button } from "@nextui-org/button";
 
-export default function BookingButton(
-  props: React.ComponentProps<typeof Button>,
-) {
+type Props = React.DetailedHTMLProps<
+  React.ButtonHTMLAttributes<HTMLButtonElement>,
+  HTMLButtonElement
+> & {};
+
+export default function BookingButton(props: Props) {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
   return (
     <>
-      <Button onPress={onOpen} {...props}>
+      <button onClick={onOpen} {...props}>
         {props.children}
-      </Button>
+      </button>
       <Modal isOpen={isOpen} onOpenChange={onOpenChange}>
         <ModalContent>
           {(onClose) => (
