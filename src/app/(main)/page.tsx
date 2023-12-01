@@ -31,13 +31,13 @@ export default async function Home() {
           </p>
         </div>
         <nav className="mt-28 flex w-full justify-between sm:justify-center sm:gap-16">
-          <Link href="#" className="flex flex-col items-center gap-2">
+          <Link href="/restaurant" className="flex flex-col items-center gap-2">
             <div className="rounded-md border bg-black/60 p-7 text-amber-100">
               <MdFastfood className="text-xl sm:text-3xl" />
             </div>
             Restaurant
           </Link>
-          <Link href="#" className="flex flex-col items-center gap-2">
+          <Link href="/events" className="flex flex-col items-center gap-2">
             <div className="rounded-md border  bg-black/60 p-7 text-amber-100">
               <MdCelebration className="text-xl sm:text-3xl" />
             </div>

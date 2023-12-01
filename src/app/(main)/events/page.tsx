@@ -31,9 +31,9 @@ export default async function EventsPage() {
         {events.map((event) => (
           <article
             key={event.id}
-            className="grid grid-cols-12 bg-white py-8 md:pe-20"
+            className="grid-cols-12 bg-white px-4 py-8 sm:grid md:pe-20"
           >
-            <div className="col-span-3 text-center">
+            <div className="col-span-3 hidden text-center sm:block">
               <p className="text-lg uppercase text-zinc-600">
                 {month(event.date)}
               </p>
