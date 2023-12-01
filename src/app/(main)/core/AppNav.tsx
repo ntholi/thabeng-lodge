@@ -17,7 +17,7 @@ import BookButton from "../booking/BookButton";
 export default function AppNav() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const menuItems = ["Home", "Events", "Menu", "About Us"];
+  const menuItems = ["Home", "Events", "Menu", "Book Now"];
 
   return (
     <Navbar
