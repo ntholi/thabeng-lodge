@@ -12,7 +12,7 @@ import {
 import { Link } from "@nextui-org/link";
 import Logo from "./Logo";
 import { useState } from "react";
-import BookButton from "../booking/BookButton";
+import BookingButton from "../booking/BookingButton";
 
 export default function AppNav() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -59,12 +59,12 @@ export default function AppNav() {
       </NavbarContent>
       <NavbarContent justify="end">
         <NavbarItem className="hidden lg:flex">
-          <BookButton
+          <BookingButton
             href="#"
             className="rounded-none border bg-amber-700 px-6  py-2 text-sm tracking-wider"
           >
             Book Now
-          </BookButton>
+          </BookingButton>
         </NavbarItem>
       </NavbarContent>
       <NavbarMenu>

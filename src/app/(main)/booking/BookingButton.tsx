@@ -9,7 +9,9 @@ import {
   useDisclosure,
 } from "@nextui-org/react";
 
-export default function BookButton(props: React.ComponentProps<typeof Button>) {
+export default function BookingButton(
+  props: React.ComponentProps<typeof Button>,
+) {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
   return (
