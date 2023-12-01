@@ -35,9 +35,9 @@ export default async function EventsPage() {
           >
             <div className="col-span-3 text-center">
               <p className="text-lg uppercase text-zinc-600">
-                {weekDay(event.date)}
+                {month(event.date)}
               </p>
-              <p className="text-2xl">{event.date.toDate().getDay()}</p>
+              <p className="text-2xl">{dayOfMonth(event.date)}</p>
             </div>
             <div className="col-span-9">
               <p className="font-bold text-zinc-600">{fullDate(event.date)}</p>
@@ -51,14 +51,21 @@ export default async function EventsPage() {
   );
 }
 
-function weekDay(date: Timestamp) {
-  return date.toDate().toLocaleDateString("en-LS", {
-    weekday: "short",
+function dayOfMonth(date: Timestamp | null | undefined) {
+  return date?.toDate().toLocaleDateString("en-LS", {
+    day: "numeric",
   });
 }
 
-function fullDate(date: Timestamp) {
-  return date.toDate().toLocaleDateString("en-LS", {
+function month(date: Timestamp | null | undefined) {
+  return date?.toDate().toLocaleDateString("en-LS", {
+    month: "short",
+  });
+}
+
+function fullDate(date: Timestamp | null | undefined) {
+  return date?.toDate().toLocaleDateString("en-LS", {
+    weekday: "short",
     year: "numeric",
     month: "long",
     day: "numeric",

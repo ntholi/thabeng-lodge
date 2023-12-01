@@ -53,8 +53,8 @@ function shorten(str: string) {
   return str.length > 35 ? str.substring(0, 35) + "..." : str;
 }
 
-function toDate(date: Timestamp) {
-  return date.toDate().toLocaleDateString("en-ZA", {
+function toDate(date: Timestamp | null | undefined) {
+  return date?.toDate().toLocaleDateString("en-ZA", {
     year: "numeric",
     month: "short",
     day: "numeric",
