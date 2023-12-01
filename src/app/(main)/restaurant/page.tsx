@@ -41,7 +41,7 @@ export default async function RestaurantPage() {
         <h2 className="text-2xl font-bold">Our Menu</h2>
         <Divider className="mt-1" />
         <Suspense fallback={<div>Loading...</div>}>
-          <div className="grid grid-cols-12 gap-10 pt-10">
+          <div className="grid grid-cols-12 pt-10 md:gap-10">
             <RestaurantMenuList promiseDocs={itemsPromise} />
           </div>
         </Suspense>

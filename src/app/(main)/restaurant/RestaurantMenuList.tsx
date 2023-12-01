@@ -23,12 +23,12 @@ export default async function RestaurantMenuList({
       {data.map((item) => (
         <article
           key={item.id}
-          className="col-span-6 md:col-span-4"
+          className="col-span-12 md:col-span-6 lg:col-span-4 2xl:col-span-3"
           style={{
             height: itemHeight,
           }}
         >
-          <div className="h-52 md:h-full">
+          <div className="h-full max-md:pb-4">
             <ItemCard item={item} />
           </div>
         </article>
