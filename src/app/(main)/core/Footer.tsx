@@ -7,7 +7,7 @@ import { Suspense } from "react";
 export default async function FooterWrapper() {
   const snapshot = getDoc(doc(db, "pages", "about-us"));
   return (
-    <footer id="footer" className="flex pb-32 pt-10">
+    <footer className="flex h-[80vh] items-center justify-center border-t bg-slate-50">
       <Suspense fallback={<div>Loading...</div>}>
         <Footer docSnapshot={snapshot} />
       </Suspense>
@@ -22,7 +22,7 @@ type Props = {
 async function Footer({ docSnapshot }: Props) {
   const page = (await docSnapshot).data() as AboutUs;
   return (
-    <div className="container mx-auto px-4 pt-16 sm:max-w-xl md:max-w-full md:px-24 lg:w-screen lg:px-28">
+    <div className="container mx-auto px-4 sm:max-w-xl md:max-w-full md:px-24 lg:w-screen lg:px-28">
       <div className="row-gap-6 mb-8 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
         <div className="sm:col-span-2">
           <Link
@@ -37,7 +37,7 @@ async function Footer({ docSnapshot }: Props) {
               alt="logo"
             />
           </Link>
-          <div className="mt-6 lg:max-w-sm">
+          <div className="mt-6 lg:max-w-sm" id="about-us">
             <p className="text-sm text-gray-800">{page.aboutUs}</p>
           </div>
         </div>

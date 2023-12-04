@@ -37,7 +37,7 @@ export default async function RestaurantPage() {
         <h1 className="text-center text-5xl font-bold uppercase">Restaurant</h1>
         <p className="mt-3 text-center text-lg">{page.description}</p>
       </header>
-      <main className="container mx-auto mt-10 px-4 md:px-16">
+      <main className="container mx-auto px-4 py-10 md:px-16">
         <h2 className="text-2xl font-bold">Our Menu</h2>
         <Divider className="mt-1" />
         <Suspense fallback={<div>Loading...</div>}>
