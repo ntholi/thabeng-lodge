@@ -1,11 +1,8 @@
 import { db } from "@/lib/firebase";
-import { MdHotel, MdFastfood, MdCelebration } from "react-icons/md";
 import { doc, getDoc } from "firebase/firestore";
-import Link from "next/link";
 import RestaurantSection from "./home/RestaurantSection";
 import EventsSection from "./home/EventsSection";
-import Footer from "./core/Footer";
-import BookingButton from "./booking/BookingButton";
+import HomeButtons from "./home/HomeButtons";
 
 async function getPage() {
   const data = (await getDoc(doc(db, "pages", "home-page"))).data();
@@ -31,24 +28,7 @@ export default async function Home() {
           </p>
         </div>
         <nav className="mt-28 flex w-full justify-between sm:justify-center sm:gap-16">
-          <Link href="/restaurant" className="flex flex-col items-center gap-2">
-            <div className="rounded-md border bg-black/60 p-7 text-amber-100">
-              <MdFastfood className="text-xl sm:text-3xl" />
-            </div>
-            Restaurant
-          </Link>
-          <Link href="/events" className="flex flex-col items-center gap-2">
-            <div className="rounded-md border  bg-black/60 p-7 text-amber-100">
-              <MdCelebration className="text-xl sm:text-3xl" />
-            </div>
-            Events
-          </Link>
-          <BookingButton className="flex flex-col items-center gap-2">
-            <div className="rounded-md border  bg-black/60 p-7 text-amber-100">
-              <MdHotel className="text-xl sm:text-3xl" />
-            </div>
-            Bookings
-          </BookingButton>
+          <HomeButtons />
         </nav>
       </header>
       <div className="bg-amber-50">
