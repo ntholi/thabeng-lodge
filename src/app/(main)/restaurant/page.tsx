@@ -1,12 +1,5 @@
 import { db } from "@/lib/firebase";
-import {
-  collection,
-  doc,
-  getDoc,
-  getDocs,
-  orderBy,
-  query,
-} from "firebase/firestore";
+import { collection, doc, getDoc, getDocs, query } from "firebase/firestore";
 import React, { Suspense } from "react";
 import RestaurantMenuList from "./RestaurantMenuList";
 import { Divider } from "@nextui-org/divider";
@@ -17,9 +10,7 @@ const getPage = async () => {
 };
 
 const getItems = async () => {
-  const data = getDocs(
-    query(collection(db, "restaurant-menu"), orderBy("dateUpdated")),
-  );
+  const data = getDocs(query(collection(db, "restaurant-menu")));
   return data;
 };
 
