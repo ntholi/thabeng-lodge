@@ -13,6 +13,31 @@ export default function Navbar() {
   return (
     <nav>
       <NavLink
+        label="Restaurant"
+        childrenOffset={28}
+        leftSection={<IconToolsKitchen2 size="1rem" stroke={1.5} />}
+      >
+        <NavLink
+          label="Menu"
+          component={Link}
+          href={"/admin/restaurant/menu"}
+          rightSection={<IconChevronRight size="0.8rem" stroke={1.5} />}
+        />
+        <NavLink
+          label="Page"
+          component={Link}
+          href={"/admin/restaurant/page"}
+          rightSection={<IconChevronRight size="0.8rem" stroke={1.5} />}
+        />
+      </NavLink>
+      <NavLink
+        label="Events"
+        component={Link}
+        href={"/admin/events"}
+        leftSection={<IconCalendarEvent size="1rem" stroke={1.5} />}
+        rightSection={<IconChevronRight size="0.8rem" stroke={1.5} />}
+      />
+      <NavLink
         label="Home Page"
         href={"/admin/home"}
         leftSection={<IconHome size="1rem" stroke={1.5} />}
@@ -22,31 +47,6 @@ export default function Navbar() {
         label="About Us"
         href={"/admin/about-us"}
         leftSection={<IconInfoCircle size="1rem" stroke={1.5} />}
-        rightSection={<IconChevronRight size="0.8rem" stroke={1.5} />}
-      />
-      <NavLink
-        label="Restaurant"
-        childrenOffset={28}
-        leftSection={<IconToolsKitchen2 size="1rem" stroke={1.5} />}
-      >
-        <NavLink
-          label="Page"
-          component={Link}
-          href={"/admin/restaurant/page"}
-          rightSection={<IconChevronRight size="0.8rem" stroke={1.5} />}
-        />
-        <NavLink
-          label="Menu"
-          component={Link}
-          href={"/admin/restaurant/menu"}
-          rightSection={<IconChevronRight size="0.8rem" stroke={1.5} />}
-        />
-      </NavLink>
-      <NavLink
-        label="Events"
-        component={Link}
-        href={"/admin/events"}
-        leftSection={<IconCalendarEvent size="1rem" stroke={1.5} />}
         rightSection={<IconChevronRight size="0.8rem" stroke={1.5} />}
       />
     </nav>

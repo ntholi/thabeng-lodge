@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import {
   Box,
   Button,
@@ -8,13 +8,13 @@ import {
   Stack,
   TextInput,
   Title,
-} from '@mantine/core';
-import '@mantine/tiptap/styles.css';
-import { FormEvent, useState } from 'react';
-import { useForm } from '@mantine/form';
-import { doc, setDoc } from 'firebase/firestore';
-import { db } from '@/lib/firebase';
-import ImagePicker from '../../core/ImagePicker';
+} from "@mantine/core";
+import "@mantine/tiptap/styles.css";
+import { FormEvent, useState } from "react";
+import { useForm } from "@mantine/form";
+import { doc, setDoc } from "firebase/firestore";
+import { db } from "@/lib/firebase";
+import ImagePicker from "../../core/ImagePicker";
 
 type Props = {
   page: HomePage | null | undefined;
@@ -23,8 +23,8 @@ export default function Form({ page }: Props) {
   const [saving, setSaving] = useState(false);
   const form = useForm<HomePage>({
     initialValues: {
-      banner: page?.banner || '',
-      tagline: page?.tagline || '',
+      banner: page?.banner || "",
+      tagline: page?.tagline || "",
     },
   });
 
@@ -32,7 +32,7 @@ export default function Form({ page }: Props) {
     event.preventDefault();
     try {
       setSaving(true);
-      await setDoc(doc(db, 'pages', 'home-page'), form.values);
+      await setDoc(doc(db, "pages", "home-page"), form.values);
     } catch (e) {
       console.log(e);
     } finally {
@@ -41,28 +41,23 @@ export default function Form({ page }: Props) {
   }
 
   return (
-    <Box component='form' onSubmit={handleSubmit}>
-      <Paper shadow='xs' p='sm' m='sm' mt={0} mb='md'>
-        <Flex justify='space-between'>
+    <Box component="form" onSubmit={handleSubmit}>
+      <Paper shadow="xs" p="sm" m="sm" mt={0} mb="md">
+        <Flex justify="space-between">
           <Title size={20}>Home Page</Title>
-          <Button type='submit' loading={saving} color='dark'>
+          <Button type="submit" loading={saving} color="dark">
             Save
           </Button>
         </Flex>
       </Paper>
-      <ScrollArea h={'79vh'} p='sm' pb={0}>
+      <ScrollArea h={"79vh"} p="sm" pb={0}>
         <Stack>
-          <TextInput label='Tagline' {...form.getInputProps('tagline')} />
-          <Paper
-            w={{
-              base: '100%',
-              md: '50%',
-            }}
-          >
+          <TextInput label="Tagline" {...form.getInputProps("tagline")} />
+          <Paper w={"100%"}>
             <ImagePicker
-              imageRef={'pages/home-page'}
-              label='Banner Image'
-              {...form.getInputProps('banner')}
+              imageRef={"pages/home-page"}
+              label="Banner Image"
+              {...form.getInputProps("banner")}
             />
           </Paper>
         </Stack>
