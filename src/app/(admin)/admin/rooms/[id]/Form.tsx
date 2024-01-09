@@ -113,8 +113,8 @@ function Features({ form }: { form: ReturnType<typeof useForm<Room>> }) {
       </Flex>
       <Divider mt={5} />
 
-      <Flex mt={"lg"} justify={"space-between"} align={"end"}>
-        <Group>
+      <Flex mt={"lg"} gap={"lg"} align={"end"}>
+        <Group grow w={"60%"}>
           <TextInput
             placeholder="Name"
             value={name}
@@ -129,6 +129,7 @@ function Features({ form }: { form: ReturnType<typeof useForm<Room>> }) {
           />
         </Group>
         <Button
+          color="dark"
           onClick={() => {
             form.setFieldValue("features", [
               ...form.values.features,
