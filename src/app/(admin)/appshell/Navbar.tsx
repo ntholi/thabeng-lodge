@@ -1,5 +1,6 @@
 import { NavLink } from "@mantine/core";
 import {
+  IconBed,
   IconCalendarEvent,
   IconChevronRight,
   IconHome,
@@ -12,6 +13,13 @@ import React from "react";
 export default function Navbar() {
   return (
     <nav>
+      <NavLink
+        label="Rooms"
+        component={Link}
+        href={"/admin/rooms"}
+        leftSection={<IconBed size="1rem" stroke={1.5} />}
+        rightSection={<IconChevronRight size="0.8rem" stroke={1.5} />}
+      />
       <NavLink
         label="Restaurant"
         childrenOffset={28}
