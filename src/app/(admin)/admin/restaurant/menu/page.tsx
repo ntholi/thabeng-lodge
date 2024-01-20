@@ -1,5 +1,5 @@
 import { doc, getDoc } from "firebase/firestore";
-import { db } from "@/lib/firebase";
+import { db } from "@/lib/config/firebase";
 import MenuList from "./MenuList";
 import { Title } from "@mantine/core";
 

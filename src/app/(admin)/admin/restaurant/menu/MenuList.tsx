@@ -1,5 +1,5 @@
 "use client";
-import { db } from "@/lib/firebase";
+import { db } from "@/lib/config/firebase";
 import { SimpleGrid } from "@mantine/core";
 import {
   addDoc,

@@ -2,7 +2,7 @@ import { Divider } from "@nextui-org/divider";
 import React, { Suspense } from "react";
 import RestaurantMenuList from "../restaurant/RestaurantMenuList";
 import { collection, getDocs, limit, orderBy, query } from "firebase/firestore";
-import { db } from "@/lib/firebase";
+import { db } from "@/lib/config/firebase";
 import Link from "next/link";
 
 export default function RestaurantSection() {

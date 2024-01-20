@@ -9,7 +9,7 @@ import {
   query,
   where,
 } from "firebase/firestore";
-import { db } from "@/lib/firebase";
+import { db } from "@/lib/config/firebase";
 import EventList from "./EventList";
 import { MdAccessTime } from "react-icons/md";
 import { Button } from "@nextui-org/button";

@@ -8,7 +8,7 @@ import {
   ScrollArea,
   Stack,
 } from "@mantine/core";
-import { db } from "@/lib/firebase";
+import { db } from "@/lib/config/firebase";
 import { useEffect, useState, useTransition } from "react";
 import {
   addDoc,

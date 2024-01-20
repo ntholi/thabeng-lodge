@@ -1,6 +1,6 @@
 "use client";
 import { getDoc, doc } from "firebase/firestore";
-import { db } from "@/lib/firebase";
+import { db } from "@/lib/config/firebase";
 import { useEffect, useState } from "react";
 import Form from "./Form";
 

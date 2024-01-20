@@ -6,16 +6,16 @@ import {
   Flex,
   Box,
   Loader,
-} from '@mantine/core';
-import React, { useEffect, useRef, useState } from 'react';
+} from "@mantine/core";
+import React, { useEffect, useRef, useState } from "react";
 import {
   deleteObject,
   getDownloadURL,
   ref,
   uploadBytes,
-} from 'firebase/storage';
-import { storage } from '@/lib/firebase';
-import { IconPhoto, IconTrashFilled } from '@tabler/icons-react';
+} from "firebase/storage";
+import { storage } from "@/lib/config/firebase";
+import { IconPhoto, IconTrashFilled } from "@tabler/icons-react";
 
 type Props = {
   value: string | null;
@@ -66,16 +66,16 @@ export default function ImagePicker(props: Props) {
   return (
     <>
       <input
-        type='file'
+        type="file"
         ref={inputRef}
-        accept='image/*'
+        accept="image/*"
         onChange={handleUpload}
         hidden
       />
-      <Text size='sm' fw={'bold'} mb={5}>
+      <Text size="sm" fw={"bold"} mb={5}>
         {props.label}
       </Text>
-      <Paper withBorder p='sm' h={props.height || 300} w='100%'>
+      <Paper withBorder p="sm" h={props.height || 300} w="100%">
         {image ? (
           <ImageDisplay image={image} handleDelete={handleDelete} />
         ) : (
@@ -98,19 +98,19 @@ function ImageDisplay({
   handleDelete: () => void;
 }) {
   return (
-    <Box w='100%' h='100%' pos='relative'>
-      <Image src={image} alt='' width='100%' height='100%' fit='contain' />
+    <Box w="100%" h="100%" pos="relative">
+      <Image src={image} alt="" width="100%" height="100%" fit="contain" />
       <Flex
-        pos='absolute'
-        top='0'
-        bottom='0'
-        left='0'
-        right='0'
-        justify='center'
-        align='center'
+        pos="absolute"
+        top="0"
+        bottom="0"
+        left="0"
+        right="0"
+        justify="center"
+        align="center"
       >
-        <ActionIcon color='red' onClick={handleDelete}>
-          <IconTrashFilled size='1rem' />
+        <ActionIcon color="red" onClick={handleDelete}>
+          <IconTrashFilled size="1rem" />
         </ActionIcon>
       </Flex>
     </Box>
@@ -127,13 +127,13 @@ function UploadButton({
   inputRef: React.RefObject<HTMLInputElement | null>;
 }) {
   return (
-    <Flex justify='center' align='center' h={'100%'} w={'100%'}>
+    <Flex justify="center" align="center" h={"100%"} w={"100%"}>
       {uploading ? (
         <Loader />
       ) : (
         <ActionIcon
-          variant='default'
-          size='xl'
+          variant="default"
+          size="xl"
           disabled={disabled}
           onClick={() => inputRef?.current?.click()}
         >

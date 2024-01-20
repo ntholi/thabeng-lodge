@@ -22,9 +22,7 @@ export default function RootLayout({
         <ColorSchemeScript />
       </head>
       <body>
-        <Providers>
-          <AppShell>{children}</AppShell>
-        </Providers>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

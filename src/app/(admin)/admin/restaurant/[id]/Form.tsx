@@ -13,7 +13,7 @@ import "@mantine/tiptap/styles.css";
 import { FormEvent, useState } from "react";
 import { useForm } from "@mantine/form";
 import { doc, serverTimestamp, setDoc } from "firebase/firestore";
-import { db } from "@/lib/firebase";
+import { db } from "@/lib/config/firebase";
 import { useRouter } from "next/navigation";
 import { IconArrowLeft } from "@tabler/icons-react";
 import ImagePicker from "@/app/(admin)/core/ImagePicker";

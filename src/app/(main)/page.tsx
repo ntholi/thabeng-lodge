@@ -1,4 +1,4 @@
-import { db } from "@/lib/firebase";
+import { db } from "@/lib/config/firebase";
 import { doc, getDoc } from "firebase/firestore";
 import RestaurantSection from "./home/RestaurantSection";
 import EventsSection from "./home/EventsSection";

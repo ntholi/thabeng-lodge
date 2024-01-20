@@ -14,7 +14,7 @@ import {
 } from "@mantine/core";
 import { FormEvent, useEffect, useState } from "react";
 import { Timestamp, doc, serverTimestamp, setDoc } from "firebase/firestore";
-import { db } from "@/lib/firebase";
+import { db } from "@/lib/config/firebase";
 import { Event } from "@/app/(admin)/admin/events/modals";
 import { DateTimePicker } from "@mantine/dates";
 import "@mantine/dates/styles.layer.css";

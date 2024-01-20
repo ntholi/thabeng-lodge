@@ -1,4 +1,4 @@
-import { db } from "@/lib/firebase";
+import { db } from "@/lib/config/firebase";
 import { collection, doc, getDoc, getDocs, query } from "firebase/firestore";
 import React, { Suspense } from "react";
 import RestaurantMenuList from "./RestaurantMenuList";

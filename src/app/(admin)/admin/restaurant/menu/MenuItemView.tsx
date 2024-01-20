@@ -3,7 +3,7 @@ import Link from "next/link";
 import { IconPencil, IconTrashXFilled } from "@tabler/icons-react";
 import { modals } from "@mantine/modals";
 import { deleteDoc, doc } from "firebase/firestore";
-import { db } from "@/lib/firebase";
+import { db } from "@/lib/config/firebase";
 
 type Props = {
   item: MenuItem;

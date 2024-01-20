@@ -1,4 +1,4 @@
-import { db } from "@/lib/firebase";
+import { db } from "@/lib/config/firebase";
 import { DocumentSnapshot, doc, getDoc } from "firebase/firestore";
 import { Image } from "@nextui-org/image";
 import Link from "next/link";

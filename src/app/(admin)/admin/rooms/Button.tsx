@@ -12,7 +12,7 @@ import Link from "next/link";
 import { IconPencil, IconPlus, IconTrashXFilled } from "@tabler/icons-react";
 import { modals } from "@mantine/modals";
 import { addDoc, collection, deleteDoc, doc } from "firebase/firestore";
-import { db } from "@/lib/firebase";
+import { db } from "@/lib/config/firebase";
 import React from "react";
 
 type Props = {
