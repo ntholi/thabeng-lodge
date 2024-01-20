@@ -38,7 +38,7 @@ async function Footer({ docSnapshot }: Props) {
             />
           </Link>
           <div className="mt-6 lg:max-w-sm" id="about-us">
-            <p className="text-sm text-gray-800">{page.aboutUs}</p>
+            <p className="text-sm text-gray-800">{page?.aboutUs}</p>
           </div>
         </div>
         <div className="space-y-2 text-sm">
@@ -48,36 +48,36 @@ async function Footer({ docSnapshot }: Props) {
           <div className="flex">
             <p className="mr-1 text-gray-800">Phone:</p>
             <Link
-              href={`tel:${page.phoneNumber}`}
+              href={`tel:${page?.phoneNumber || "#"}`}
               aria-label="Our phone"
               title="Our phone"
               className="text-deep-purple-accent-400 hover:text-deep-purple-800 transition-colors duration-300"
             >
-              {page.phoneNumber}
+              {page?.phoneNumber}
             </Link>
           </div>
           <div className="flex">
             <p className="mr-1 text-gray-800">Email:</p>
             <Link
-              href={`mailto:${page.email}`}
+              href={`mailto:${page?.email}` || "#"}
               aria-label="Our email"
               title="Our email"
               className="text-deep-purple-accent-400 hover:text-deep-purple-800 transition-colors duration-300"
             >
-              {page.email}
+              {page?.email}
             </Link>
           </div>
           <div className="flex">
             <p className="mr-1 text-gray-800">Address:</p>
             <Link
-              href="https://www.google.com/maps"
+              href="https://www.google.com/maps/dir/-29.3042012,27.4908734/thabeng+hotel/@-29.3142557,27.4812812,14.75z/data=!4m9!4m8!1m1!4e1!1m5!1m1!1s0x1e8dcbf6b9708b5b:0xfce8ebca5ab712e3!2m2!1d27.4974105!2d-29.3259564?entry=ttu"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Our address"
               title="Our address"
               className="text-deep-purple-accent-400 hover:text-deep-purple-800 transition-colors duration-300"
             >
-              {page.address}
+              {page?.address}
             </Link>
           </div>
         </div>
@@ -88,7 +88,7 @@ async function Footer({ docSnapshot }: Props) {
           <div className="mt-1 flex items-center space-x-3">
             <Link
               target="_blank"
-              href={page.twitter}
+              href={page?.twitter || "#"}
               className="hover:text-deep-purple-accent-400 text-gray-500 transition-colors duration-300"
             >
               <svg viewBox="0 0 24 24" fill="currentColor" className="h-5">
@@ -97,7 +97,7 @@ async function Footer({ docSnapshot }: Props) {
             </Link>
             <Link
               target="_blank"
-              href={page.instagram}
+              href={page?.instagram || "#"}
               className="hover:text-deep-purple-accent-400 text-gray-500 transition-colors duration-300"
             >
               <svg viewBox="0 0 30 30" fill="currentColor" className="h-6">
@@ -107,7 +107,7 @@ async function Footer({ docSnapshot }: Props) {
             </Link>
             <Link
               target="_blank"
-              href={page.facebook}
+              href={page?.facebook || "#"}
               className="hover:text-deep-purple-accent-400 text-gray-500 transition-colors duration-300"
             >
               <svg viewBox="0 0 24 24" fill="currentColor" className="h-5">
