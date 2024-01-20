@@ -15,7 +15,7 @@ export default function RestaurantSection() {
   return (
     <section>
       <header className="flex justify-between">
-        <h2 className="text-3xl font-bold text-amber-800">Restaurant</h2>
+        <h2 className="text-3xl font-bold text-blue-800">Restaurant</h2>
         <Link className="font-semibold hover:text-gray-500" href="/restaurant">
           View All
         </Link>

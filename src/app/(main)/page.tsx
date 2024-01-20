@@ -31,7 +31,7 @@ export default async function Home() {
           <HomeButtons />
         </nav>
       </header>
-      <div className="bg-amber-50">
+      <div>
         <main className="container mx-auto min-h-screen grid-cols-12 px-2 py-10 md:grid md:gap-10 md:px-4 md:pt-16">
           <div className="col-span-8">
             <RestaurantSection />
