@@ -5,13 +5,13 @@ import Image from "next/image";
 
 export default function Logo() {
   return (
-    <Link href="/" className="flex justify-start">
+    <Link href="/">
       <Image
-        src="/images/logo.png"
+        src="/images/logo-white.png"
         alt="logo"
-        className="h-12 w-[95px]"
-        width={300}
-        height={300}
+        className="mt-2 h-24 w-auto"
+        width={200}
+        height={200}
       />
     </Link>
   );
