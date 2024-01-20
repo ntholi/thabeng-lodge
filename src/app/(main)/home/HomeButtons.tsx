@@ -16,7 +16,7 @@ export default function HomeButtons() {
         }}
       >
         <Link href="/restaurant" className="flex flex-col items-center gap-2">
-          <div className="rounded-md border bg-black/60 p-7 text-amber-100">
+          <div className="rounded-md border bg-black/60 p-7 text-white">
             <MdFastfood className="text-xl sm:text-3xl" />
           </div>
           Restaurant
@@ -31,7 +31,7 @@ export default function HomeButtons() {
         }}
       >
         <Link href="/events" className="flex flex-col items-center gap-2">
-          <div className="rounded-md border  bg-black/60 p-7 text-amber-100">
+          <div className="rounded-md border  bg-black/60 p-7 text-white">
             <MdCelebration className="text-xl sm:text-3xl" />
           </div>
           Events
@@ -46,10 +46,10 @@ export default function HomeButtons() {
         }}
       >
         <Link href="#" className="flex flex-col items-center gap-2">
-          <div className="rounded-md border  bg-black/60 p-7 text-amber-100">
+          <div className="rounded-md border  bg-black/60 p-7 text-white">
             <MdHotel className="text-xl sm:text-3xl" />
           </div>
-          Bookingsg
+          Bookings
         </Link>
       </motion.div>
     </>

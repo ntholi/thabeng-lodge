@@ -9,7 +9,7 @@ export default function Logo() {
       <Image
         src="/images/logo-white.png"
         alt="logo"
-        className="mt-2 h-24 w-auto"
+        className="h-20 w-auto"
         width={200}
         height={200}
       />
