@@ -29,7 +29,7 @@ export default function AppNav() {
       <NavbarContent>
         <NavbarMenuToggle
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-          className="sm:hidden"
+          className="text-white sm:hidden"
         />
         <NavbarBrand>
           <Logo />
