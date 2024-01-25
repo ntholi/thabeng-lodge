@@ -14,6 +14,7 @@ import { useForm } from "@mantine/form";
 import { doc, setDoc } from "firebase/firestore";
 import { db } from "@/lib/config/firebase";
 import ImagePicker from "../../../core/ImagePicker";
+import { EventsPage } from "../../events/modals";
 
 type Props = {
   page: EventsPage | null | undefined;
@@ -33,7 +34,7 @@ export default function Form({ page }: Props) {
     event.preventDefault();
     try {
       setSaving(true);
-      await setDoc(doc(db, "pages", "restaurant-page"), form.values);
+      await setDoc(doc(db, "pages", "events-page"), form.values);
     } catch (e) {
       console.log(e);
     } finally {
@@ -45,7 +46,7 @@ export default function Form({ page }: Props) {
     <Box component="form" onSubmit={handleSubmit}>
       <Paper shadow="xs" p="sm" m="sm" mt={0} mb="md">
         <Flex justify="space-between">
-          <Title size={20}>Restaurant Page</Title>
+          <Title size={20}>Events Page</Title>
           <Button type="submit" loading={saving} color="dark">
             Save
           </Button>
@@ -54,7 +55,7 @@ export default function Form({ page }: Props) {
       <Stack p="sm">
         <TextInput label="Description" {...form.getInputProps("description")} />
         <ImagePicker
-          imageRef={"pages/restaurant/banner"}
+          imageRef={"pages/events/banner"}
           label="Banner Image"
           {...form.getInputProps("banner")}
         />

@@ -7,3 +7,8 @@ export interface Event {
   date?: Timestamp | null;
   dateCreated?: Timestamp;
 }
+
+export interface EventsPage {
+  description: string;
+  banner: string;
+}

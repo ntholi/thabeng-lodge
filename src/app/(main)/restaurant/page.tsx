@@ -7,7 +7,7 @@ import CommonHeader from "../core/CommonHeader";
 
 const getPage = async () => {
   const data = (await getDoc(doc(db, "pages", "restaurant-page"))).data();
-  return data as unknown as RestaurantPage;
+  return data as unknown as EventsPage;
 };
 
 const getItems = async () => {

@@ -1,4 +1,4 @@
-interface RestaurantPage {
+interface EventsPage {
   description: string;
   banner: string;
 }
