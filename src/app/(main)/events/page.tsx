@@ -2,6 +2,8 @@ import { db } from "@/lib/config/firebase";
 import {
   Timestamp,
   collection,
+  doc,
+  getDoc,
   getDocs,
   orderBy,
   query,
@@ -9,6 +11,12 @@ import {
 } from "firebase/firestore";
 import React from "react";
 import { Event } from "../../(admin)/admin/events/modals";
+import CommonHeader from "../core/CommonHeader";
+
+const getPage = async () => {
+  const data = (await getDoc(doc(db, "pages", "events-page"))).data();
+  return data as unknown as EventsPage;
+};
 
 export default async function EventsPage() {
   const q = query(
@@ -22,11 +30,14 @@ export default async function EventsPage() {
       ...doc.data(),
     } as unknown as Event;
   });
+  const page = await getPage();
   return (
-    <main className="min-h-screen bg-amber-50">
-      <header className="flex h-[40vh] items-center justify-center bg-zinc-900 text-white">
-        <h1 className="text-center text-5xl font-bold uppercase">Events</h1>
-      </header>
+    <main className="min-h-screen bg-gray-50">
+      <CommonHeader
+        description={page.description}
+        image={page.banner}
+        title="Events"
+      />
       <section className="container mx-auto mt-3 space-y-5 px-4 md:px-56">
         {events.map((event) => (
           <article
