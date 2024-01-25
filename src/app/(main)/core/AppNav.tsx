@@ -18,7 +18,13 @@ import { Button } from "@nextui-org/button";
 export default function AppNav() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const menuItems = ["Home", "Events", "Menu", "Book Now"];
+  const menuItems = [
+    { name: "Home", href: "/" },
+    { name: "Restaurant", href: "/restaurant" },
+    { name: "Rooms", href: "/rooms" },
+    { name: "Events", href: "/events" },
+    { name: "About Us", href: "#about-us" },
+  ];
 
   return (
     <Navbar
@@ -48,6 +54,11 @@ export default function AppNav() {
           </Link>
         </NavbarItem>
         <NavbarItem>
+          <Link color="foreground" href="/rooms">
+            Rooms
+          </Link>
+        </NavbarItem>
+        <NavbarItem>
           <Link color="foreground" href="/events">
             Events
           </Link>
@@ -68,19 +79,8 @@ export default function AppNav() {
       <NavbarMenu>
         {menuItems.map((item, index) => (
           <NavbarMenuItem key={`${item}-${index}`}>
-            <Link
-              color={
-                index === 2
-                  ? "primary"
-                  : index === menuItems.length - 1
-                    ? "danger"
-                    : "foreground"
-              }
-              className="w-full"
-              href="#"
-              size="lg"
-            >
-              {item}
+            <Link className="w-full" href={item.href} size="lg">
+              {item.name}
             </Link>
           </NavbarMenuItem>
         ))}
