@@ -1,17 +1,7 @@
-import { db } from "@/lib/config/firebase";
-import {
-  Timestamp,
-  collection,
-  doc,
-  getDoc,
-  getDocs,
-  orderBy,
-  query,
-  where,
-} from "firebase/firestore";
-import React from "react";
-import CommonHeader from "../core/CommonHeader";
 import { Room } from "@/app/(admin)/admin/rooms/model";
+import { db } from "@/lib/config/firebase";
+import { collection, doc, getDoc, getDocs, query } from "firebase/firestore";
+import CommonHeader from "../core/CommonHeader";
 
 const getPage = async () => {
   const data = (await getDoc(doc(db, "pages", "rooms-page"))).data();
