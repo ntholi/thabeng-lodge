@@ -15,11 +15,22 @@ export default function Navbar() {
     <nav>
       <NavLink
         label="Rooms"
-        component={Link}
-        href={"/admin/rooms"}
+        childrenOffset={28}
         leftSection={<IconBed size="1rem" stroke={1.5} />}
-        rightSection={<IconChevronRight size="0.8rem" stroke={1.5} />}
-      />
+      >
+        <NavLink
+          label="Page"
+          component={Link}
+          href={"/admin/rooms/page"}
+          rightSection={<IconChevronRight size="0.8rem" stroke={1.5} />}
+        />
+        <NavLink
+          label="Rooms"
+          component={Link}
+          href={"/admin/rooms/rooms"}
+          rightSection={<IconChevronRight size="0.8rem" stroke={1.5} />}
+        />
+      </NavLink>
       <NavLink
         label="Restaurant"
         childrenOffset={28}

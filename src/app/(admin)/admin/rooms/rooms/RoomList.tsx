@@ -13,6 +13,7 @@ import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import RoomView from "./RoomView";
 import NewPressButton from "./Button";
+import { Room } from "../model";
 
 export default function RoomList() {
   const [items, setItems] = useState<Room[]>([]);

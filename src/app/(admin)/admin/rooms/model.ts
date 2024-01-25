@@ -3,7 +3,12 @@ interface RoomFeature {
   count: number;
 }
 
-interface Room {
+export interface RoomsPage {
+  description: string;
+  banner: string;
+}
+
+export interface Room {
   id: string;
   name: string;
   description: string;

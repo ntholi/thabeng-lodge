@@ -3,6 +3,7 @@ import { getDoc, doc } from "firebase/firestore";
 import { db } from "@/lib/config/firebase";
 import { useEffect, useState } from "react";
 import Form from "./Form";
+import { Room } from "../../model";
 
 type Props = { params: { id: string } };
 

@@ -5,6 +5,7 @@ import { modals } from "@mantine/modals";
 import { deleteDoc, doc } from "firebase/firestore";
 import { db } from "@/lib/config/firebase";
 import { formatMoney } from "@/lib/utils";
+import { Room } from "../model";
 
 type Props = {
   item: Room;
