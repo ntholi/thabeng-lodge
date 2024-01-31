@@ -4,6 +4,8 @@ import { collection, doc, getDoc, getDocs, query } from "firebase/firestore";
 import CommonHeader from "../core/CommonHeader";
 import { Image } from "@nextui-org/image";
 import NextImage from "next/image";
+import { formatMoney } from "@/lib/utils";
+import { FaCircleCheck } from "react-icons/fa6";
 
 const getPage = async () => {
   const data = (await getDoc(doc(db, "pages", "rooms-page"))).data();
@@ -50,8 +52,21 @@ function RoomView({ room }: { room: Room }) {
         />
       </div>
       <div className="col-span-12 sm:col-span-5">
-        <h1 className="text-4xl font-bold text-gray-800">{room.name}</h1>
+        <h2 className="text-3xl text-gray-800">{room.name}</h2>
+        <p className="font-semibold text-green-600">
+          {formatMoney(room.price)}
+        </p>
         <p className="text-gray-600">{room.description}</p>
+        <h3 className="mt-5 border-b border-gray-300 text-xl">Features</h3>
+        <ul className="mt-2 flex flex-col text-sm">
+          {room.features.map((feature) => (
+            <li key={feature.name} className="flex items-center gap-2">
+              <FaCircleCheck className="text-gray-600" />
+              <p className="">{feature.count}</p>
+              <p className="text-gray-600">{feature.name}</p>
+            </li>
+          ))}
+        </ul>
       </div>
     </article>
   );
