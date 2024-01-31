@@ -32,10 +32,10 @@ export default async function RoomsPage() {
       />
       <section className="container mx-auto mt-3 space-y-5 px-4 md:px-32">
         {rooms.map((event, i) => (
-          <>
-            <RoomView key={event.id} room={event} reversed={i % 2 != 0} />
+          <div key={event.id}>
+            <RoomView room={event} reversed={i % 2 != 0} />
             <Divider />
-          </>
+          </div>
         ))}
       </section>
     </main>
@@ -44,22 +44,22 @@ export default async function RoomsPage() {
 
 function RoomView({ room, reversed }: { room: Room; reversed: boolean }) {
   return (
-    <article className="grid-cols-12 gap-5 bg-white px-4 py-8 sm:grid md:pe-20">
+    <article className="grid-cols-12 gap-5 bg-white py-8 sm:px-4 md:grid md:pe-20">
       <div
         className={clsx("col-span-12 sm:col-span-7", reversed && "order-last")}
       >
         <Image
           as={NextImage}
           isZoomed
-          className="h-96 w-full object-cover"
+          className="h-64 w-full object-cover sm:h-96"
           width={1100}
           height={1100}
           src={room.image}
           alt={room.name}
         />
       </div>
-      <div className="col-span-12 sm:col-span-5">
-        <h2 className="text-3xl text-gray-800">{room.name}</h2>
+      <div className="col-span-12 mt-3 sm:col-span-5 sm:mt-0">
+        <h2 className="text-2xl text-gray-800 sm:text-3xl">{room.name}</h2>
         <p className="font-semibold text-green-600">
           {formatMoney(room.price)}
         </p>
