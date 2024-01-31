@@ -44,7 +44,7 @@ export default function RoomList() {
         price: 0,
         createdAt: serverTimestamp(),
       } as Omit<Room, "id">);
-      router.push(`/admin/rooms/${item.id}`);
+      router.push(`/admin/rooms/rooms/${item.id}`);
     } finally {
       setLoading(false);
     }

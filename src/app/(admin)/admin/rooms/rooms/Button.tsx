@@ -1,19 +1,5 @@
-import {
-  Card,
-  Title,
-  Text,
-  Divider,
-  Group,
-  Button,
-  ActionIcon,
-  Loader,
-} from "@mantine/core";
-import Link from "next/link";
-import { IconPencil, IconPlus, IconTrashXFilled } from "@tabler/icons-react";
-import { modals } from "@mantine/modals";
-import { addDoc, collection, deleteDoc, doc } from "firebase/firestore";
-import { db } from "@/lib/config/firebase";
-import React from "react";
+import { Card, Loader, Text } from "@mantine/core";
+import { IconPlus } from "@tabler/icons-react";
 
 type Props = {
   onClick: () => void;
