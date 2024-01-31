@@ -6,6 +6,7 @@ import { Image } from "@nextui-org/image";
 import NextImage from "next/image";
 import { formatMoney } from "@/lib/utils";
 import { FaCircleCheck } from "react-icons/fa6";
+import clsx from "clsx";
 
 const getPage = async () => {
   const data = (await getDoc(doc(db, "pages", "rooms-page"))).data();
@@ -29,18 +30,20 @@ export default async function RoomsPage() {
         title="Rooms"
       />
       <section className="container mx-auto mt-3 space-y-5 px-4 md:px-56">
-        {rooms.map((event) => (
-          <RoomView key={event.id} room={event} />
+        {rooms.map((event, i) => (
+          <RoomView key={event.id} room={event} reversed={i % 2 != 0} />
         ))}
       </section>
     </main>
   );
 }
 
-function RoomView({ room }: { room: Room }) {
+function RoomView({ room, reversed }: { room: Room; reversed: boolean }) {
   return (
     <article className="grid-cols-12 gap-5 bg-white px-4 py-8 sm:grid md:pe-20">
-      <div className="col-span-12 sm:col-span-7">
+      <div
+        className={clsx("col-span-12 sm:col-span-7", reversed && "order-last")}
+      >
         <Image
           as={NextImage}
           isZoomed
