@@ -7,6 +7,7 @@ import NextImage from "next/image";
 import { formatMoney } from "@/lib/utils";
 import { FaCircleCheck } from "react-icons/fa6";
 import clsx from "clsx";
+import { Divider } from "@nextui-org/divider";
 
 const getPage = async () => {
   const data = (await getDoc(doc(db, "pages", "rooms-page"))).data();
@@ -29,9 +30,12 @@ export default async function RoomsPage() {
         image={page?.banner}
         title="Rooms"
       />
-      <section className="container mx-auto mt-3 space-y-5 px-4 md:px-56">
+      <section className="container mx-auto mt-3 space-y-5 px-4 md:px-32">
         {rooms.map((event, i) => (
-          <RoomView key={event.id} room={event} reversed={i % 2 != 0} />
+          <>
+            <RoomView key={event.id} room={event} reversed={i % 2 != 0} />
+            <Divider />
+          </>
         ))}
       </section>
     </main>
