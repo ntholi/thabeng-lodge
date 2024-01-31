@@ -18,8 +18,8 @@ import { storage } from "@/lib/config/firebase";
 import { IconPhoto, IconTrashFilled } from "@tabler/icons-react";
 
 type Props = {
-  value: string | null;
-  onChange: (value: string | null) => void;
+  value?: string | null;
+  onChange?: (value: string | null) => void;
   label: string;
   imageRef: string;
   checked?: boolean;
@@ -41,7 +41,7 @@ export default function ImagePicker(props: Props) {
 
   function handleDelete() {
     setImage(null);
-    props.onChange(null);
+    if (props.onChange) props.onChange(null);
     const fileRef = ref(storage, props.imageRef);
     deleteObject(fileRef);
   }
@@ -56,7 +56,7 @@ export default function ImagePicker(props: Props) {
         const url = await getDownloadURL(fileRef);
         console.log({ url });
         setImage(url);
-        props.onChange(url);
+        if (props.onChange) props.onChange(url);
       }
     } finally {
       setUploading(false);
