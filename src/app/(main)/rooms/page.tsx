@@ -37,10 +37,11 @@ export default async function RoomsPage() {
 
 function RoomView({ room }: { room: Room }) {
   return (
-    <article className="grid-cols-12 bg-white px-4 py-8 sm:grid md:pe-20">
-      <div className="col-span-12 sm:col-span-6">
+    <article className="grid-cols-12 gap-5 bg-white px-4 py-8 sm:grid md:pe-20">
+      <div className="col-span-12 sm:col-span-7">
         <Image
           as={NextImage}
+          isZoomed
           className="h-96 w-full object-cover"
           width={1100}
           height={1100}
@@ -48,7 +49,7 @@ function RoomView({ room }: { room: Room }) {
           alt={room.name}
         />
       </div>
-      <div className="col-span-12 sm:col-span-6">
+      <div className="col-span-12 sm:col-span-5">
         <h1 className="text-4xl font-bold text-gray-800">{room.name}</h1>
         <p className="text-gray-600">{room.description}</p>
       </div>

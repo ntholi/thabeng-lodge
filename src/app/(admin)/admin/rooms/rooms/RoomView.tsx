@@ -4,7 +4,7 @@ import { IconPencil, IconTrashXFilled } from "@tabler/icons-react";
 import { modals } from "@mantine/modals";
 import { deleteDoc, doc } from "firebase/firestore";
 import { db } from "@/lib/config/firebase";
-import { formatMoney } from "@/lib/utils";
+import { formatMoney, shortenText } from "@/lib/utils";
 import { Room } from "../model";
 
 type Props = {
@@ -42,7 +42,7 @@ export default function RoomView({ item }: Props) {
       </Group>
 
       <Text size="sm" c="dimmed">
-        {item.description}
+        {shortenText(item.description)}
       </Text>
 
       <Group grow mt="xl">
@@ -51,7 +51,7 @@ export default function RoomView({ item }: Props) {
           color="dark"
           size="xs"
           component={Link}
-          href={`/admin/rooms/${item.id}`}
+          href={`/admin/rooms/rooms/${item.id}`}
           leftSection={
             <IconPencil color="gray" size="0.9rem" aria-label="edit" />
           }

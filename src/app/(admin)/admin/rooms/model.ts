@@ -1,4 +1,4 @@
-interface RoomFeature {
+export interface RoomFeature {
   name: string;
   count: number;
 }

@@ -11,6 +11,7 @@ import {
   Stack,
   Table,
   TextInput,
+  Textarea,
   Title,
 } from "@mantine/core";
 import "@mantine/tiptap/styles.css";
@@ -21,6 +22,7 @@ import { db } from "@/lib/config/firebase";
 import { useRouter } from "next/navigation";
 import { IconArrowLeft } from "@tabler/icons-react";
 import ImagePicker from "@/app/(admin)/core/ImagePicker";
+import { Room, RoomFeature } from "../../model";
 
 type Props = {
   item: Room;
@@ -46,7 +48,7 @@ export default function Form({ item }: Props) {
     try {
       setSaving(true);
       await setDoc(doc(db, "rooms", item.id), form.values);
-      router.push("/admin/rooms");
+      router.push("/admin/rooms/rooms");
     } catch (error) {
       console.log(error);
     } finally {
@@ -79,7 +81,7 @@ export default function Form({ item }: Props) {
         <Grid.Col span={6}>
           <Stack>
             <TextInput label="Name" {...form.getInputProps("name")} />
-            <TextInput
+            <Textarea
               label="Description"
               {...form.getInputProps("description")}
             />
