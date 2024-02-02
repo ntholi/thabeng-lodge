@@ -38,14 +38,14 @@ export default function BookingButton(props: ButtonProps) {
               <ModalHeader className="flex flex-col gap-1">Booking</ModalHeader>
               <ModalBody>
                 <p>
-                  For booking or any enquiries please call use at
-                  <Link href="tel:1234567890" color="primary">
+                  For booking or any enquiries please call use at{" "}
+                  <Link href={`tel:${phone}`} color="primary">
                     {phone}
                   </Link>
                 </p>
               </ModalBody>
               <ModalFooter>
-                <Button color="danger" variant="light" onPress={onClose}>
+                <Button color="primary" variant="light" onPress={onClose}>
                   Okay
                 </Button>
               </ModalFooter>
