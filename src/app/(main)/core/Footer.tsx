@@ -119,8 +119,8 @@ async function Footer({ docSnapshot }: Props) {
       </div>
       <div className="flex flex-col-reverse justify-between border-t pb-10 pt-5 lg:flex-row">
         <p className="text-sm text-gray-600">
-          © Copyright {new Date().getFullYear()} Thabeng Lodge and Restaurant.
-          All rights reserved.
+          © Copyright {new Date().getFullYear()} Thabeng Hotel. All rights
+          reserved.
         </p>
         <ul className="mb-3 flex flex-col space-y-2 sm:flex-row sm:space-x-5 sm:space-y-0 lg:mb-0">
           <li>

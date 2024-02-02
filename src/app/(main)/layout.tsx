@@ -8,8 +8,8 @@ import SessionProvider from "../(admin)/appshell/SessionProvider";
 const jost = Jost({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Thabeng Lodge",
-  description: "Thabeng Lodge",
+  title: "Thabeng Hotel",
+  description: "Thabeng Hotel",
 };
 
 export default function RootLayout({
