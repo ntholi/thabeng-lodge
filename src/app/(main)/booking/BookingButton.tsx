@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   Modal,
   ModalContent,
@@ -8,28 +8,41 @@ import {
   ModalFooter,
   useDisclosure,
 } from "@nextui-org/modal";
-import { Button } from "@nextui-org/button";
+import { Link } from "@nextui-org/link";
+import { doc, getDoc } from "firebase/firestore";
+import { db } from "@/lib/config/firebase";
+import { Button, ButtonProps } from "@nextui-org/react";
 
-type Props = React.DetailedHTMLProps<
-  React.ButtonHTMLAttributes<HTMLButtonElement>,
-  HTMLButtonElement
-> & {};
-
-export default function BookingButton(props: Props) {
+export default function BookingButton(props: ButtonProps) {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
+  const [phone, setPhone] = useState("Loading...");
+
+  useEffect(() => {
+    getDoc(doc(db, "pages", "about-us")).then((snapshot) => {
+      const data = snapshot.data();
+      if (data) {
+        setPhone(data.phoneNumber);
+      }
+    });
+  }, []);
 
   return (
     <>
-      <button onClick={onOpen} {...props}>
+      <Button color="primary" radius="none" onClick={onOpen} {...props}>
         {props.children}
-      </button>
+      </Button>
       <Modal isOpen={isOpen} onOpenChange={onOpenChange}>
         <ModalContent>
           {(onClose) => (
             <>
               <ModalHeader className="flex flex-col gap-1">Booking</ModalHeader>
               <ModalBody>
-                <p>This feature is still under development.</p>
+                <p>
+                  For booking or any enquiries please call use at
+                  <Link href="tel:1234567890" color="primary">
+                    {phone}
+                  </Link>
+                </p>
               </ModalBody>
               <ModalFooter>
                 <Button color="danger" variant="light" onPress={onClose}>

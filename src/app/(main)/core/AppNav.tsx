@@ -13,7 +13,6 @@ import { Link } from "@nextui-org/link";
 import Logo from "./Logo";
 import { useState } from "react";
 import BookingButton from "../booking/BookingButton";
-import { Button } from "@nextui-org/button";
 
 export default function AppNav() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -71,9 +70,7 @@ export default function AppNav() {
       </NavbarContent>
       <NavbarContent justify="end">
         <NavbarItem className="hidden lg:flex">
-          <Button color="primary" radius="none">
-            Book Now
-          </Button>
+          <BookingButton>Book Now</BookingButton>
         </NavbarItem>
       </NavbarContent>
       <NavbarMenu>
