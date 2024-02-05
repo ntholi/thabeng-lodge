@@ -1,6 +1,8 @@
 import RoomList from "./RoomList";
 import { Title } from "@mantine/core";
 
+export const dynamic = "force-dynamic";
+
 export default function RoomsPage() {
   return (
     <>

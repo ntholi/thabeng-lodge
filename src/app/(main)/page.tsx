@@ -4,6 +4,8 @@ import RestaurantSection from "./home/RestaurantSection";
 import EventsSection from "./home/EventsSection";
 import HomeButtons from "./home/HomeButtons";
 
+export const dynamic = "force-dynamic";
+
 async function getPage() {
   const data = (await getDoc(doc(db, "pages", "home-page"))).data();
   return data as unknown as HomePage;

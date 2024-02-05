@@ -9,6 +9,8 @@ import { FaCircleCheck } from "react-icons/fa6";
 import clsx from "clsx";
 import { Divider } from "@nextui-org/divider";
 
+export const dynamic = "force-dynamic";
+
 const getPage = async () => {
   const data = (await getDoc(doc(db, "pages", "rooms-page"))).data();
   return data as unknown as EventsPage;

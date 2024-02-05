@@ -5,6 +5,8 @@ import RestaurantMenuList from "./RestaurantMenuList";
 import { Divider } from "@nextui-org/divider";
 import CommonHeader from "../core/CommonHeader";
 
+export const dynamic = "force-dynamic";
+
 const getPage = async () => {
   const data = (await getDoc(doc(db, "pages", "restaurant-page"))).data();
   return data as unknown as EventsPage;

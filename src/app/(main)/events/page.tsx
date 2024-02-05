@@ -13,6 +13,8 @@ import React from "react";
 import { Event } from "../../(admin)/admin/events/modals";
 import CommonHeader from "../core/CommonHeader";
 
+export const dynamic = "force-dynamic";
+
 const getPage = async () => {
   const data = (await getDoc(doc(db, "pages", "events-page"))).data();
   return data as unknown as EventsPage;
