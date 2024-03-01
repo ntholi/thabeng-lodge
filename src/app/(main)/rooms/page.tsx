@@ -8,6 +8,7 @@ import { formatMoney } from "@/lib/utils";
 import { FaCircleCheck } from "react-icons/fa6";
 import clsx from "clsx";
 import { Divider } from "@nextui-org/divider";
+import ImageView from "./ImageView";
 
 export const dynamic = "force-dynamic";
 
@@ -50,15 +51,7 @@ function RoomView({ room, reversed }: { room: Room; reversed: boolean }) {
       <div
         className={clsx("col-span-12 sm:col-span-7", reversed && "order-last")}
       >
-        <Image
-          as={NextImage}
-          isZoomed
-          className="h-64 w-full object-cover sm:h-96"
-          width={1100}
-          height={1100}
-          src={room.image ?? "/images/no-image.webp"}
-          alt={room.name}
-        />
+        <ImageView room={room} />
       </div>
       <div className="col-span-12 mt-3 sm:col-span-5 sm:mt-0">
         <h2 className="text-2xl text-gray-800 sm:text-3xl">{room.name}</h2>
