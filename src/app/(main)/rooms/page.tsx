@@ -46,6 +46,7 @@ export default async function RoomsPage() {
 }
 
 function RoomView({ room, reversed }: { room: Room; reversed: boolean }) {
+  delete room.createdAt;
   return (
     <article className="grid-cols-12 gap-5 bg-white py-8 sm:px-4 md:grid md:pe-20">
       <div
