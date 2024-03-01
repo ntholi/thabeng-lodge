@@ -11,7 +11,7 @@ export default function ItemCard({ item }: Props) {
     <Card isFooterBlurred className={"h-full w-full"}>
       <CardHeader className="absolute top-0 z-10 flex-col items-start bg-gradient-to-b from-black/50 to-black/0 pb-10">
         <h4 className="text-sm font-bold text-green-50">
-          M{item.price.toFixed(2)}
+          M{item?.price?.toFixed(2)}
         </h4>
         <h3 className="text-2xl font-medium text-white">{item.name}</h3>
       </CardHeader>
