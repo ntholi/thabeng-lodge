@@ -56,7 +56,7 @@ function RoomView({ room, reversed }: { room: Room; reversed: boolean }) {
           className="h-64 w-full object-cover sm:h-96"
           width={1100}
           height={1100}
-          src={room.image}
+          src={room.image ?? "/images/no-image.webp"}
           alt={room.name}
         />
       </div>
