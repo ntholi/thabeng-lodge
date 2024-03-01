@@ -1,5 +1,6 @@
 "use client";
 import {
+  ActionIcon,
   Box,
   Button,
   Divider,
@@ -20,7 +21,7 @@ import { useForm } from "@mantine/form";
 import { doc, setDoc } from "firebase/firestore";
 import { db } from "@/lib/config/firebase";
 import { useRouter } from "next/navigation";
-import { IconArrowLeft } from "@tabler/icons-react";
+import { IconArrowLeft, IconTrashFilled } from "@tabler/icons-react";
 import ImagePicker from "@/app/(admin)/core/ImagePicker";
 import { Room, RoomFeature } from "../../model";
 
@@ -145,28 +146,57 @@ function Features({ form }: { form: ReturnType<typeof useForm<Room>> }) {
         </Button>
       </Flex>
 
-      <FeatureTable features={form.values.features} />
+      <FeatureTable form={form} />
     </Box>
   );
 }
 
-function FeatureTable({ features }: { features: RoomFeature[] }) {
+function FeatureTable({ form }: { form: ReturnType<typeof useForm<Room>> }) {
+  const features = form.values.features as RoomFeature[];
   const rows = features.map((it) => (
     <Table.Tr key={it.name}>
       <Table.Td>{it.name}</Table.Td>
       <Table.Td>{it.count}</Table.Td>
+      <Table.Td align="right">
+        <ActionIcon
+          aria-label="delete"
+          color="red"
+          variant="outline"
+          onClick={() => {
+            form.setFieldValue(
+              "features",
+              form.values.features.filter(
+                (feature) => feature.name !== it.name,
+              ),
+            );
+          }}
+        >
+          <IconTrashFilled size={"1rem"} />
+        </ActionIcon>
+      </Table.Td>
     </Table.Tr>
   ));
 
   return (
-    <Table mt={"xl"} stickyHeader stickyHeaderOffset={60}>
-      <Table.Thead>
-        <Table.Tr>
-          <Table.Th>Name</Table.Th>
-          <Table.Th>Count</Table.Th>
-        </Table.Tr>
-      </Table.Thead>
-      <Table.Tbody>{rows}</Table.Tbody>
-    </Table>
+    <Paper
+      w={{
+        base: "100%",
+        md: "50vw",
+      }}
+      mt={"xl"}
+      px={"md"}
+      withBorder
+    >
+      <Table mt={"xl"} stickyHeader stickyHeaderOffset={60}>
+        <Table.Thead>
+          <Table.Tr>
+            <Table.Th>Name</Table.Th>
+            <Table.Th>Count</Table.Th>
+            <Table.Th />
+          </Table.Tr>
+        </Table.Thead>
+        <Table.Tbody>{rows}</Table.Tbody>
+      </Table>
+    </Paper>
   );
 }
