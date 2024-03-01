@@ -20,7 +20,7 @@ import { IconPhoto, IconTrashFilled } from "@tabler/icons-react";
 type Props = {
   value?: string | null;
   onChange?: (value: string | null) => void;
-  label: string;
+  label?: string;
   imageRef: string;
   checked?: boolean;
   disabled?: boolean;

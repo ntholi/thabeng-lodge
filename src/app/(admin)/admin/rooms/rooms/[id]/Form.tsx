@@ -14,6 +14,7 @@ import {
   TextInput,
   Textarea,
   Title,
+  Text,
 } from "@mantine/core";
 import "@mantine/tiptap/styles.css";
 import { FormEvent, useState } from "react";
@@ -40,6 +41,9 @@ export default function Form({ item }: Props) {
       description: item.description,
       price: item.price,
       image: item.image,
+      image2: item.image2,
+      image3: item.image3,
+      image4: item.image4,
       createdAt: item.createdAt,
     },
   });
@@ -96,6 +100,33 @@ export default function Form({ item }: Props) {
             label="Image"
             {...form.getInputProps("image")}
           />
+          <Paper withBorder p={"xs"} mt={"md"}>
+            <Box ml={"sm"}>
+              <Text fw={500} size="sm">
+                Other Images
+              </Text>
+              <Text size="xs" c="dimmed">
+                Optional
+              </Text>
+            </Box>
+            <Flex gap={"sm"} mt={"sm"}>
+              <ImagePicker
+                height={90}
+                imageRef={`rooms/${item.id}_2`}
+                {...form.getInputProps("image2")}
+              />
+              <ImagePicker
+                height={90}
+                imageRef={`rooms/${item.id}_3`}
+                {...form.getInputProps("image3")}
+              />
+              <ImagePicker
+                height={90}
+                imageRef={`rooms/${item.id}_4`}
+                {...form.getInputProps("image4")}
+              />
+            </Flex>
+          </Paper>
         </Grid.Col>
       </Grid>
       <Features form={form} />

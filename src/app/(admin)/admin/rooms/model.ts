@@ -16,4 +16,7 @@ export interface Room {
   price: number;
   image: string;
   createdAt?: any;
+  image2?: string;
+  image3?: string;
+  image4?: string;
 }
