@@ -1,56 +1,24 @@
 import { auth } from '@/lib/config/firebase';
 import { AppShell, Avatar, Divider, NavLink, ScrollArea } from '@mantine/core';
 import { modals } from '@mantine/modals';
-import {
-  IconCategory,
-  IconChevronRight,
-  IconHome,
-  IconLogout2,
-  IconNews,
-  IconUserEdit,
-} from '@tabler/icons-react';
+import { IconChevronRight, IconLogout2, IconNews } from '@tabler/icons-react';
 import { signOut } from 'firebase/auth';
 import Link from 'next/link';
-import { usePathname, useSearchParams } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 import { useSession } from '../auth/SessionProvider';
 
 export default function Navigation() {
   const pathname = usePathname();
-  const searchParams = useSearchParams();
 
   return (
     <AppShell.Navbar p='xs'>
       <AppShell.Section grow component={ScrollArea}>
-        <NavLink
-          label='Home Page'
-          component={Link}
-          active={pathname.startsWith('/admin/home-page')}
-          href={'/admin/home-page'}
-          leftSection={<IconHome size='1.1rem' />}
-          rightSection={<IconChevronRight size='0.8rem' stroke={1.5} />}
-        />
         <NavLink
           label='Posts'
           component={Link}
           active={pathname.startsWith('/admin/posts')}
           href={'/admin/posts'}
           leftSection={<IconNews size='1.1rem' />}
-          rightSection={<IconChevronRight size='0.8rem' stroke={1.5} />}
-        />
-        <NavLink
-          label='Categories'
-          component={Link}
-          active={pathname.startsWith('/admin/categories')}
-          href={'/admin/categories'}
-          leftSection={<IconCategory size='1.1rem' />}
-          rightSection={<IconChevronRight size='0.8rem' stroke={1.5} />}
-        />
-        <NavLink
-          label='Authors'
-          component={Link}
-          active={pathname.startsWith('/admin/authors')}
-          href={'/admin/authors'}
-          leftSection={<IconUserEdit size='1.1rem' />}
           rightSection={<IconChevronRight size='0.8rem' stroke={1.5} />}
         />
       </AppShell.Section>
