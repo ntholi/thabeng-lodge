@@ -7,11 +7,11 @@ import {
   IconX,
 } from '@tabler/icons-react';
 import React, { useEffect, useState, useTransition } from 'react';
-import { Post } from './Post';
-import { postRepository } from './repository';
+import { Article } from './Article';
+import { articleRepository } from './repository';
 
 type Props = {
-  article: Post;
+  article: Article;
 };
 
 export default function PublishSwitch({ article }: Props) {
@@ -21,7 +21,7 @@ export default function PublishSwitch({ article }: Props) {
 
   const update = () => {
     startTransition(async () => {
-      await postRepository.updatePublishStatus(article.id, !published);
+      await articleRepository.updatePublishStatus(article.id, !published);
     });
   };
 

@@ -19,20 +19,20 @@ import { IconCheck, IconExclamationMark } from '@tabler/icons-react';
 import NextImage from 'next/image';
 import RichTextField from '../../admin-core/form/RichTextField';
 import TextAreaField from '../../admin-core/form/TextAreaField';
-import { Post } from './Post';
+import { Article } from './Article';
 import PublishSwitch from './PublishSwitch';
 import { revalidate } from './actions';
-import { postRepository } from './repository';
+import { articleRepository } from './repository';
 import { IconExclamationCircle } from '@tabler/icons-react';
 
-export default function PostPage() {
+export default function ArticlePage() {
   return (
     <ResourcePage
-      resourceLabel='Posts'
-      repository={postRepository}
-      create={PostCreate}
-      edit={PostEdit}
-      details={PostDetails}
+      resourceLabel='Articles'
+      repository={articleRepository}
+      create={ArticleCreate}
+      edit={ArticleEdit}
+      details={ArticleDetails}
       navLinkProps={(it) => ({
         label: shorten(it.title, 36),
         description: `By ${it.author?.name || 'Anonymous'}`,
@@ -46,7 +46,7 @@ export default function PostPage() {
   );
 }
 
-function PostDetails({ item }: { item: Post }) {
+function ArticleDetails({ item }: { item: Article }) {
   return (
     <DetailsView>
       <Box>
@@ -87,7 +87,7 @@ function PostDetails({ item }: { item: Post }) {
   );
 }
 
-function PostCreate(props: CreateViewProps<Post>) {
+function ArticleCreate(props: CreateViewProps<Article>) {
   return (
     <CreateView
       {...props}
@@ -103,13 +103,13 @@ function PostCreate(props: CreateViewProps<Post>) {
         name='category'
       />
       <ReferenceField referenceLabel='name' reference='authors' name='author' />
-      <ImagePicker name='image' folder='posts' />
+      <ImagePicker name='image' folder='articles' />
       <RichTextField name='body' />
     </CreateView>
   );
 }
 
-function PostEdit(props: EditViewProps<Post>) {
+function ArticleEdit(props: EditViewProps<Article>) {
   return (
     <EditView
       {...props}
@@ -125,7 +125,7 @@ function PostEdit(props: EditViewProps<Post>) {
         name='category'
       />
       <ReferenceField referenceLabel='name' reference='authors' name='author' />
-      <ImagePicker name='image' folder='posts' />
+      <ImagePicker name='image' folder='articles' />
       <RichTextField name='body' />
     </EditView>
   );

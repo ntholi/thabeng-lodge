@@ -1,6 +1,6 @@
 import { Resource } from '../../admin-core/repository/repository';
 
-export interface Post extends Resource {
+export interface Article extends Resource {
   title: string;
   slug: string;
   caption: string;

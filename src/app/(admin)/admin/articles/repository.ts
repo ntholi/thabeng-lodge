@@ -7,31 +7,31 @@ import {
   where,
 } from 'firebase/firestore';
 import { FirebaseRepository } from '../../admin-core/repository';
-import { Post } from './Post';
+import { Article } from './Article';
 import { db } from '@/lib/config/firebase';
 import { ResourceCreate } from '../../admin-core/repository/repository';
 
-class PostRepository extends FirebaseRepository<Post> {
+class ArticleRepository extends FirebaseRepository<Article> {
   constructor() {
-    super('posts');
+    super('articles');
   }
 
-  create(resource: ResourceCreate<Post>): Promise<Post> {
+  create(resource: ResourceCreate<Article>): Promise<Article> {
     const slug = slugify(resource.title);
     return super.create({ ...resource, slug, published: false });
   }
 
-  update(id: string, resource: Omit<Post, 'id'>): Promise<Post> {
+  update(id: string, resource: Omit<Article, 'id'>): Promise<Article> {
     const slug = slugify(resource.title);
     return super.update(id, { ...resource, slug });
   }
 
-  async getPublished(): Promise<Post[]> {
+  async getPublished(): Promise<Article[]> {
     const ref = collection(db, this.collectionName);
     const q = query(
       ref,
       where('published', '==', true),
-      orderBy('publishedAt', 'desc'),
+      orderBy('publishedAt', 'desc')
     );
     return await this.getDocs(q);
   }
@@ -49,4 +49,4 @@ function slugify(title: string) {
   return title.toLowerCase().replace(/\s/g, '-');
 }
 
-export const postRepository = new PostRepository();
+export const articleRepository = new ArticleRepository();
