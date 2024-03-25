@@ -5,14 +5,6 @@ export interface Article extends Resource {
   slug: string;
   caption: string;
   body: string;
-  category?: {
-    id: string;
-    name: string;
-  };
-  author?: {
-    id: string;
-    name: string;
-  };
   image: string;
   published: boolean;
   publishedAt: Date | null;

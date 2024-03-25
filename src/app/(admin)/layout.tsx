@@ -7,7 +7,7 @@ import Providers from './providers';
 import { PropsWithChildren } from 'react';
 
 export const metadata = {
-  title: 'Mamosetse Admin',
+  title: 'Thabeng Admin',
 };
 
 export default function RootLayout({ children }: PropsWithChildren) {

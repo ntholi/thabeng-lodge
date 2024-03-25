@@ -35,7 +35,6 @@ export default function ArticlePage() {
       details={ArticleDetails}
       navLinkProps={(it) => ({
         label: shorten(it.title, 36),
-        description: `By ${it.author?.name || 'Anonymous'}`,
         rightSection: it.published ? (
           <IconCheck size={'1.2rem'} color='green' />
         ) : (
@@ -56,18 +55,6 @@ function ArticleDetails({ item }: { item: Article }) {
       <FieldView label='Title' value={item.title} />
       <FieldView label={shorten(item.caption)} value={'Caption'} />
       <FieldView label={stripHtml(item.body, 100)} value='Body' />
-      <ReferenceView
-        reference='categories'
-        referenceKey={item?.category?.id}
-        label='Category'
-        value={item?.category?.name}
-      />
-      <ReferenceView
-        reference='authors'
-        referenceKey={item?.author?.id}
-        label='Author'
-        value={item?.author?.name}
-      />
       <div>
         {item.image && (
           <Image
@@ -97,12 +84,6 @@ function ArticleCreate(props: CreateViewProps<Article>) {
     >
       <TextField name='title' />
       <TextAreaField name='caption' />
-      <ReferenceField
-        referenceLabel='name'
-        reference='categories'
-        name='category'
-      />
-      <ReferenceField referenceLabel='name' reference='authors' name='author' />
       <ImagePicker name='image' folder='articles' />
       <RichTextField name='body' />
     </CreateView>
